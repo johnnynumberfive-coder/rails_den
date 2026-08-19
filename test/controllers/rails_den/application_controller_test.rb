@@ -37,6 +37,35 @@ module RailsDen
       assert_same user, controller.current_rails_den_user
     end
 
+    test "uses the configured current user resolver when present" do
+      user = Object.new
+
+      RailsDen.configure do |config|
+        config.current_user_resolver = -> { user }
+      end
+
+      controller = RailsDen::ApplicationController.new
+
+      assert_same user, controller.current_rails_den_user
+    end
+
+    test "current user resolver takes precedence over current user method" do
+      resolved_user = Object.new
+      method_user = Object.new
+
+      RailsDen.configure do |config|
+        config.current_user_resolver = -> { resolved_user }
+      end
+
+      controller = RailsDen::ApplicationController.new
+
+      controller.define_singleton_method(:current_user) do
+        method_user
+      end
+
+      assert_same resolved_user, controller.current_rails_den_user
+    end
+
     test "reports when a RailsDen user is signed in" do
       user = Object.new
       controller = RailsDen::ApplicationController.new
@@ -92,6 +121,30 @@ module RailsDen
       controller.define_singleton_method(:require_account!) do
         authentication_called = true
       end
+
+      controller.authenticate_rails_den_user!
+
+      assert authentication_called
+    end
+
+    test "can call a private host authentication method" do
+      authentication_called = false
+
+      RailsDen.configure do |config|
+        config.authentication_method = :require_authentication
+      end
+
+      controller = RailsDen::ApplicationController.new
+
+      controller.define_singleton_method(:current_user) do
+        nil
+      end
+
+      controller.define_singleton_method(:require_authentication) do
+        authentication_called = true
+      end
+
+      controller.singleton_class.send(:private, :require_authentication)
 
       controller.authenticate_rails_den_user!
 
