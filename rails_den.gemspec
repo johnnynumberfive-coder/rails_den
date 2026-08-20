@@ -3,9 +3,9 @@ require_relative "lib/rails_den/version"
 Gem::Specification.new do |spec|
   spec.name        = "rails_den"
   spec.version     = RailsDen::VERSION
-  spec.authors     = [ "TODO: Write your name" ]
-  spec.email       = [ "TODO: Write your email address" ]
-  spec.homepage    = "TODO"
+  spec.authors     = [ "Oak Harbor Ventures, LLC" ]
+  spec.email       = [ "John Nelson" ]
+  spec.homepage    = "https://support.oakharborventures.com"
   spec.summary     = "TODO: Summary of RailsDen."
   spec.description = "TODO: Description of RailsDen."
   spec.license     = "MIT"
@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", ">= 8.1.3.1"
   spec.add_dependency "simple_form", ">= 5.4.1"
+  spec.add_dependency "administrate", "~> 1.0"
 end

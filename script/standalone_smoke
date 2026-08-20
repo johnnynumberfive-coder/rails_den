@@ -1,0 +1,170 @@
+#!/usr/bin/env ruby
+
+require "fileutils"
+require "stringio"
+require "tmpdir"
+
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+
+require "bundler/setup"
+require "rails_den"
+require "rails_den/cli"
+
+integration_test = <<~RUBY
+  require "test_helper"
+
+  class RailsDenStandaloneSmokeTest < ActionDispatch::IntegrationTest
+    setup do
+      Session.delete_all
+      RailsDen::Administrator.delete_all
+      User.delete_all
+    end
+
+    test "first registered user becomes administrator and later users do not" do
+      post "/registration", params: {
+        user: {
+          email_address: "owner@example.com",
+          password: "password123",
+          password_confirmation: "password123"
+        }
+      }
+
+      assert_redirected_to "/rails_den"
+
+      owner = User.find_by!(
+        email_address: "owner@example.com"
+      )
+
+      assert RailsDen::Administrator.exists?(
+        user: owner
+      )
+
+      follow_redirect!
+
+      assert_response :success
+      assert_includes response.body, "Admin"
+
+      get "/rails_den/admin"
+
+      assert_response :success
+
+      delete "/session"
+
+      assert_response :see_other
+
+      post "/registration", params: {
+        user: {
+          email_address: "member@example.com",
+          password: "password123",
+          password_confirmation: "password123"
+        }
+      }
+
+      assert_redirected_to "/rails_den"
+
+      member = User.find_by!(
+        email_address: "member@example.com"
+      )
+
+      assert_not RailsDen::Administrator.exists?(
+        user: member
+      )
+
+      get "/rails_den/admin"
+
+      assert_response :forbidden
+    end
+  end
+RUBY
+
+Dir.mktmpdir("rails_den_standalone_smoke") do |temporary_directory|
+  puts
+  puts "Generating standalone RailsDen application..."
+  puts
+
+  original_directory = Dir.pwd
+
+  begin
+    Dir.chdir(temporary_directory)
+
+    status = RailsDen::CLI.start(
+      [
+        "new",
+        "community",
+        "--skip-git"
+      ],
+      out: $stdout,
+      err: $stderr
+    )
+  ensure
+    Dir.chdir(original_directory)
+  end
+
+  unless status.zero?
+    warn "RailsDen application generation failed."
+    exit status
+  end
+
+  application_path =
+    File.join(
+      temporary_directory,
+      "community"
+    )
+
+  test_path =
+    File.join(
+      application_path,
+      "test",
+      "integration",
+      "rails_den_standalone_smoke_test.rb"
+    )
+
+  FileUtils.mkdir_p(
+    File.dirname(test_path)
+  )
+
+  File.write(
+    test_path,
+    integration_test
+  )
+
+  puts
+  puts "Running standalone RailsDen integration smoke test..."
+  puts
+
+  command = [
+    File.join(application_path, "bin", "rails"),
+    "test",
+    "test/integration/rails_den_standalone_smoke_test.rb"
+  ]
+
+  success =
+    Bundler.with_unbundled_env do
+      system(
+        *command,
+        chdir: application_path
+      )
+    end
+
+  unless success
+    warn
+    warn "Standalone RailsDen smoke test failed."
+    exit 1
+  end
+
+  puts
+  puts "============================================================"
+  puts
+  puts "Standalone RailsDen smoke test passed."
+  puts
+  puts "Verified:"
+  puts "  - standalone application generation"
+  puts "  - RailsDen migrations installed"
+  puts "  - first registered user becomes administrator"
+  puts "  - administrator sees the Admin link"
+  puts "  - administrator can access /rails_den/admin"
+  puts "  - later registered users are not administrators"
+  puts "  - later users receive 403 from /rails_den/admin"
+  puts
+  puts "============================================================"
+end

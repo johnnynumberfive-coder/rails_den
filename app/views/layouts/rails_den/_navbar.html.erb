@@ -6,6 +6,12 @@
       controller.send(RailsDen.config.current_user_method)
     end
 
+  rails_den_administrator =
+    rails_den_current_user.present? &&
+      RailsDen::Administrator.exists?(
+        user: rails_den_current_user
+      )
+
   rails_den_home_path =
     if main_app.respond_to?(:root_path)
       main_app.root_path
@@ -34,6 +40,12 @@
           <span class="rails-den-navbar-user">
             <%= rails_den_current_user.email_address %>
           </span>
+        <% end %>
+
+        <% if rails_den_administrator %>
+          <%= link_to "Admin",
+                      admin_root_path,
+                      class: "rails-den-navbar-link" %>
         <% end %>
 
         <% if rails_den_registration_routes %>

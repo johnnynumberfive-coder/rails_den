@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_19_222017) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_20_181858) do
+  create_table "rails_den_administrators", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.string "user_type", null: false
+    t.index ["user_type", "user_id"], name: "index_rails_den_administrators_on_user", unique: true
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "ip_address"

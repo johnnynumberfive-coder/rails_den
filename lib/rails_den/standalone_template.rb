@@ -92,7 +92,7 @@ after_bundle do
       def create
         @user = User.new(registration_params)
 
-        if @user.save
+        if save_registration
           start_new_session_for(@user)
           redirect_to "/rails_den"
         else
@@ -137,6 +137,20 @@ after_bundle do
       end
 
       private
+
+      def save_registration
+        User.transaction do
+          next false unless @user.save
+
+          if User.count == 1
+            RailsDen::Administrator.create!(
+              user: @user
+            )
+          end
+
+          true
+        end
+      end
 
       def registration_params
         params.require(:user).permit(
@@ -272,7 +286,11 @@ after_bundle do
       config.user_class = "User"
 
       config.current_user_resolver = -> {
-        authenticated? ? Current.user : nil
+        if respond_to?(:authenticated?, true)
+          authenticated? ? Current.user : nil
+        elsif (session_id = cookies.signed[:session_id])
+          Session.find_by(id: session_id)&.user
+        end
       }
 
       config.authentication_handler = -> {
@@ -284,6 +302,7 @@ after_bundle do
     end
   RUBY
 
+  rails_command "rails_den:install:migrations"
   rails_command "db:migrate"
 
   say

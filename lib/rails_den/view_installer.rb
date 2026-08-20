@@ -4,6 +4,7 @@ module RailsDen
   class ViewInstaller
     VIEW_FILES = [
       "layouts/rails_den/application.html.erb",
+      "layouts/rails_den/_navbar.html.erb",
       "rails_den/sessions/new.html.erb",
       "rails_den/registrations/new.html.erb",
       "rails_den/registrations/edit.html.erb",

@@ -1,5 +1,5 @@
 require "simple_form"
-
+require "administrate"
 require "rails_den/version"
 require "rails_den/configuration"
 require "rails_den/engine"
