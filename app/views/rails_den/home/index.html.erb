@@ -1,25 +1,80 @@
-<div class="rails-den-auth">
-  <section class="rails-den-auth-card">
-    <header class="rails-den-brand">
-      <h1 class="rails-den-brand-name">RailsDen</h1>
+<div class="rails-den-community">
+  <header class="rails-den-community-header">
+    <div>
+      <h1 class="rails-den-community-title">RailsDen</h1>
 
-      <p class="rails-den-brand-tagline">
+      <p class="rails-den-community-tagline">
         Forums. Chat. Community.
       </p>
-    </header>
+    </div>
+  </header>
 
-    <h2 class="rails-den-auth-title">
-      Welcome to RailsDen
-    </h2>
+  <% if @categories.any? %>
+    <div class="rails-den-category-list">
+      <% @categories.each do |category| %>
+        <section class="rails-den-category">
+          <header class="rails-den-category-header">
+            <div>
+              <h2 class="rails-den-category-title">
+                <%= category.title %>
+              </h2>
 
-    <p class="rails-den-auth-description">
-      Your community is up and running.
-    </p>
+              <% if category.description.present? %>
+                <p class="rails-den-category-description">
+                  <%= category.description %>
+                </p>
+              <% end %>
+            </div>
+          </header>
 
-    <% if current_rails_den_user.respond_to?(:email_address) %>
-      <p class="rails-den-auth-description">
-        Signed in as <strong><%= current_rails_den_user.email_address %></strong>
+          <div class="rails-den-board-list">
+            <% boards = category.boards
+                                .where(enabled: true, visibility: "public")
+                                .ordered %>
+
+            <% if boards.any? %>
+              <% boards.each do |board| %>
+                <%= link_to board_path(board),
+                            class: "rails-den-board" do %>
+                  <% if board.icon.present? %>
+                    <div class="rails-den-board-icon">
+                      <%= board.icon %>
+                    </div>
+                  <% end %>
+
+                  <div class="rails-den-board-content">
+                    <h3 class="rails-den-board-title">
+                      <%= board.title %>
+                    </h3>
+
+                    <% if board.description.present? %>
+                      <p class="rails-den-board-description">
+                        <%= board.description %>
+                      </p>
+                    <% end %>
+                  </div>
+
+                  <div class="rails-den-board-arrow" aria-hidden="true">
+                    &rsaquo;
+                  </div>
+                <% end %>
+              <% end %>
+            <% else %>
+              <div class="rails-den-board-empty">
+                No boards yet.
+              </div>
+            <% end %>
+          </div>
+        </section>
+      <% end %>
+    </div>
+  <% else %>
+    <section class="rails-den-empty-state">
+      <h2>No categories yet</h2>
+
+      <p>
+        This community is still getting set up.
       </p>
-    <% end %>
-  </section>
+    </section>
+  <% end %>
 </div>

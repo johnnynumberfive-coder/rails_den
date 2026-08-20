@@ -31,7 +31,7 @@ class RegistrationTest < ActionDispatch::IntegrationTest
     follow_redirect!
 
     assert_response :success
-    assert_includes response.body, "Welcome to RailsDen"
+    assert_includes response.body, "Forums. Chat. Community."
     assert_includes response.body, "newmember@example.com"
   end
 

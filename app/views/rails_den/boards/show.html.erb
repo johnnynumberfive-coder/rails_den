@@ -1,0 +1,55 @@
+<div class="rails-den-community">
+  <div class="rails-den-breadcrumbs">
+    <%= link_to "Community", root_path %>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <span>
+      <%= @board.category.title %>
+    </span>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <span>
+      <%= @board.title %>
+    </span>
+  </div>
+
+  <header class="rails-den-board-page-header">
+    <div>
+      <p class="rails-den-board-page-category">
+        <%= @board.category.title %>
+      </p>
+
+      <h1 class="rails-den-board-page-title">
+        <%= @board.title %>
+      </h1>
+
+      <% if @board.description.present? %>
+        <p class="rails-den-board-page-description">
+          <%= @board.description %>
+        </p>
+      <% end %>
+    </div>
+  </header>
+
+  <section class="rails-den-topics">
+    <header class="rails-den-topics-header">
+      <h2 class="rails-den-topics-title">
+        Topics
+      </h2>
+    </header>
+
+    <div class="rails-den-topics-empty">
+      <h3>No topics yet</h3>
+
+      <p>
+        Be the first to start a conversation in this board.
+      </p>
+    </div>
+  </section>
+</div>

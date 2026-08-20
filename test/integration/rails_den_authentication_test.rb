@@ -5,7 +5,7 @@ class RailsDenAuthenticationTest < ActionDispatch::IntegrationTest
     get "/rails_den"
 
     assert_response :success
-    assert_includes response.body, "Welcome to RailsDen"
+    assert_includes response.body, "Forums. Chat. Community."
     assert_includes response.body, "Sign in"
   end
 

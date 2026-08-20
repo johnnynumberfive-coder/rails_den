@@ -6,6 +6,7 @@
 :root {
   --rails-den-bg: #171a1f;
   --rails-den-surface: #22262d;
+  --rails-den-surface-raised: #272c34;
   --rails-den-surface-input: #1b1f25;
   --rails-den-text: #ece7df;
   --rails-den-muted: #a6adb7;
@@ -111,6 +112,10 @@ body.rails-den {
 .rails-den-shell {
   min-height: calc(100vh - 65px);
 }
+
+/*
+ * Authentication
+ */
 
 .rails-den-auth {
   min-height: calc(100vh - 65px);
@@ -263,6 +268,617 @@ body.rails-den {
   padding-left: 20px;
 }
 
+/*
+ * Public community
+ */
+
+.rails-den-community {
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 48px 0 64px;
+}
+
+.rails-den-community-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.rails-den-community-title {
+  margin: 0;
+  color: var(--rails-den-text);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.rails-den-community-tagline {
+  margin: 8px 0 0;
+  color: var(--rails-den-muted);
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.rails-den-category-list {
+  display: grid;
+  gap: 28px;
+}
+
+.rails-den-category {
+  overflow: hidden;
+  background: var(--rails-den-surface);
+  border: 1px solid var(--rails-den-border);
+  border-radius: var(--rails-den-radius);
+  box-shadow: var(--rails-den-shadow);
+}
+
+.rails-den-category-header {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--rails-den-border);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(255, 255, 255, 0)
+    );
+}
+
+.rails-den-category-title {
+  margin: 0;
+  color: var(--rails-den-text);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.rails-den-category-description {
+  margin: 6px 0 0;
+  color: var(--rails-den-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.rails-den-board-list {
+  display: block;
+}
+
+.rails-den-board {
+  min-height: 88px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  border-bottom: 1px solid var(--rails-den-border);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
+}
+
+.rails-den-board:last-child {
+  border-bottom: 0;
+}
+
+.rails-den-board:hover {
+  background: var(--rails-den-surface-raised);
+}
+
+.rails-den-board-icon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(200, 59, 50, 0.35);
+  border-radius: 10px;
+  background: rgba(200, 59, 50, 0.1);
+  color: #ef8179;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.rails-den-board-content {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.rails-den-board-title {
+  margin: 0;
+  color: var(--rails-den-text);
+  font-size: 1.05rem;
+  font-weight: 750;
+}
+
+.rails-den-board:hover .rails-den-board-title {
+  color: #ffffff;
+}
+
+.rails-den-board-description {
+  margin: 5px 0 0;
+  color: var(--rails-den-muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.rails-den-board-arrow {
+  flex: 0 0 auto;
+  color: #727a85;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  transition:
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.rails-den-board:hover .rails-den-board-arrow {
+  color: var(--rails-den-primary-hover);
+  transform: translateX(3px);
+}
+
+.rails-den-board-empty {
+  padding: 24px;
+  color: var(--rails-den-muted);
+  font-style: italic;
+}
+
+/*
+ * Public board page
+ */
+
+.rails-den-breadcrumbs {
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--rails-den-muted);
+  font-size: 0.9rem;
+}
+
+.rails-den-breadcrumbs a {
+  color: #e06a62;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.rails-den-breadcrumbs a:hover {
+  color: #ef8179;
+  text-decoration: underline;
+}
+
+.rails-den-breadcrumb-separator {
+  color: #626a75;
+}
+
+.rails-den-board-page-header {
+  margin-bottom: 28px;
+  padding: 28px 30px;
+  background: var(--rails-den-surface);
+  border: 1px solid var(--rails-den-border);
+  border-radius: var(--rails-den-radius);
+  box-shadow: var(--rails-den-shadow);
+}
+
+.rails-den-board-page-category {
+  margin: 0 0 8px;
+  color: var(--rails-den-primary-hover);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.rails-den-board-page-title {
+  margin: 0;
+  color: var(--rails-den-text);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+.rails-den-board-page-description {
+  max-width: 760px;
+  margin: 10px 0 0;
+  color: var(--rails-den-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.rails-den-topics {
+  overflow: hidden;
+  background: var(--rails-den-surface);
+  border: 1px solid var(--rails-den-border);
+  border-radius: var(--rails-den-radius);
+  box-shadow: var(--rails-den-shadow);
+}
+
+.rails-den-topics-header {
+  padding: 17px 22px;
+  border-bottom: 1px solid var(--rails-den-border);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.rails-den-topics-title {
+  margin: 0;
+  color: var(--rails-den-text);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.rails-den-topics-empty {
+  padding: 64px 28px;
+  text-align: center;
+}
+
+.rails-den-topics-empty h3 {
+  margin: 0;
+  color: var(--rails-den-text);
+  font-size: 1.25rem;
+}
+
+.rails-den-topics-empty p {
+  margin: 8px 0 0;
+  color: var(--rails-den-muted);
+  line-height: 1.5;
+}
+
+.rails-den-empty-state {
+  padding: 64px 28px;
+  background: var(--rails-den-surface);
+  border: 1px solid var(--rails-den-border);
+  border-radius: var(--rails-den-radius);
+  box-shadow: var(--rails-den-shadow);
+  text-align: center;
+}
+
+.rails-den-empty-state h2 {
+  margin: 0;
+  color: var(--rails-den-text);
+}
+
+.rails-den-empty-state p {
+  margin: 8px 0 0;
+  color: var(--rails-den-muted);
+}
+
+/*
+ * RailsDen administration
+ */
+
+.rails-den-admin .rails-den-admin-container {
+  min-height: calc(100vh - 65px);
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  background: var(--rails-den-bg);
+}
+
+.rails-den-admin .navigation {
+  width: auto;
+  min-width: 0;
+  padding: 28px 18px;
+  background: var(--rails-den-surface);
+  border-right: 1px solid var(--rails-den-border);
+}
+
+.rails-den-admin .navigation .button--nav {
+  width: 100%;
+  margin: 0 0 24px;
+  padding: 10px 14px;
+  border: 1px solid var(--rails-den-primary);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--rails-den-text);
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.rails-den-admin .navigation .button--nav:hover {
+  background: var(--rails-den-primary);
+  color: #ffffff;
+}
+
+.rails-den-admin .navigation__link {
+  display: block;
+  margin: 3px 0;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: var(--rails-den-muted);
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.rails-den-admin .navigation__link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--rails-den-text);
+}
+
+.rails-den-admin .rails-den-admin-content {
+  width: auto;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: 28px 32px 48px;
+  background: var(--rails-den-bg);
+  color: var(--rails-den-text);
+}
+
+.rails-den-admin .main-content__header {
+  margin-bottom: 20px;
+}
+
+.rails-den-admin .main-content__page-title,
+.rails-den-admin .main-content h1,
+.rails-den-admin .main-content h2,
+.rails-den-admin .main-content h3 {
+  color: var(--rails-den-text);
+}
+
+.rails-den-admin .main-content__page-title {
+  font-size: 1.7rem;
+  letter-spacing: -0.03em;
+}
+
+.rails-den-admin .main-content a {
+  color: #e06a62;
+}
+
+.rails-den-admin .main-content a:hover {
+  color: #ef8179;
+}
+
+.rails-den-admin .collection-data,
+.rails-den-admin .attributes,
+.rails-den-admin .form {
+  overflow: hidden;
+  background: var(--rails-den-surface);
+  border: 1px solid var(--rails-den-border);
+  border-radius: var(--rails-den-radius);
+  box-shadow: var(--rails-den-shadow);
+}
+
+.rails-den-admin table {
+  width: 100%;
+  border-collapse: collapse;
+  background: transparent;
+  color: var(--rails-den-text);
+}
+
+.rails-den-admin thead,
+.rails-den-admin thead tr {
+  background: #1d2127;
+}
+
+.rails-den-admin th {
+  padding: 13px 15px;
+  border-bottom: 1px solid var(--rails-den-border);
+  color: var(--rails-den-muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.rails-den-admin td {
+  padding: 14px 15px;
+  border-bottom: 1px solid var(--rails-den-border);
+  color: var(--rails-den-text);
+  vertical-align: middle;
+}
+
+.rails-den-admin tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.rails-den-admin tbody tr:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.rails-den-admin td a {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.rails-den-admin .table__row {
+  background: transparent;
+}
+
+.rails-den-admin .table__row:hover {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.rails-den-admin .attribute-label {
+  color: var(--rails-den-muted);
+  font-weight: 700;
+}
+
+.rails-den-admin .attribute-data {
+  color: var(--rails-den-text);
+}
+
+.rails-den-admin .attribute-label,
+.rails-den-admin .attribute-data {
+  padding: 14px 18px;
+  border-bottom-color: var(--rails-den-border);
+}
+
+.rails-den-admin .field-unit {
+  border-bottom-color: var(--rails-den-border);
+}
+
+.rails-den-admin .field-unit__label label {
+  color: var(--rails-den-text);
+  font-weight: 700;
+}
+
+.rails-den-admin .field-unit__field {
+  color: var(--rails-den-text);
+}
+
+.rails-den-admin input[type="text"],
+.rails-den-admin input[type="email"],
+.rails-den-admin input[type="number"],
+.rails-den-admin input[type="password"],
+.rails-den-admin input[type="search"],
+.rails-den-admin textarea,
+.rails-den-admin select {
+  width: 100%;
+  border: 1px solid var(--rails-den-border);
+  border-radius: 8px;
+  background: var(--rails-den-surface-input);
+  color: var(--rails-den-text);
+}
+
+.rails-den-admin input[type="text"],
+.rails-den-admin input[type="email"],
+.rails-den-admin input[type="number"],
+.rails-den-admin input[type="password"],
+.rails-den-admin input[type="search"],
+.rails-den-admin select {
+  min-height: 42px;
+  padding: 9px 12px;
+}
+
+.rails-den-admin textarea {
+  min-height: 120px;
+  padding: 11px 12px;
+}
+
+.rails-den-admin input::placeholder,
+.rails-den-admin textarea::placeholder {
+  color: #737b86;
+}
+
+.rails-den-admin input:focus,
+.rails-den-admin textarea:focus,
+.rails-den-admin select:focus {
+  border-color: var(--rails-den-primary);
+  outline: 3px solid rgba(200, 59, 50, 0.18);
+}
+
+.rails-den-admin .search {
+  margin: 0;
+}
+
+.rails-den-admin .search__input {
+  background: var(--rails-den-surface-input);
+  border-color: var(--rails-den-border);
+  color: var(--rails-den-text);
+}
+
+.rails-den-admin .button,
+.rails-den-admin input[type="submit"] {
+  border: 0;
+  border-radius: 8px;
+  background: var(--rails-den-primary);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.rails-den-admin .button:hover,
+.rails-den-admin input[type="submit"]:hover {
+  background: var(--rails-den-primary-hover);
+  color: #ffffff;
+}
+
+.rails-den-admin .main-content a.button,
+.rails-den-admin .main-content a.button:visited {
+  color: #ffffff;
+}
+
+.rails-den-admin .main-content a.button:hover {
+  color: #ffffff;
+}
+
+.rails-den-admin .button--alt {
+  border: 1px solid var(--rails-den-border);
+  background: transparent;
+  color: var(--rails-den-text);
+}
+
+.rails-den-admin .button--alt:hover {
+  border-color: var(--rails-den-primary);
+  background: rgba(200, 59, 50, 0.12);
+  color: #ffffff;
+}
+
+.rails-den-admin .link--destroy {
+  color: var(--rails-den-danger);
+}
+
+.rails-den-admin .link--destroy:hover {
+  color: #ff928a;
+}
+
+.rails-den-admin .flash {
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  border: 1px solid var(--rails-den-border);
+  border-radius: 8px;
+  background: var(--rails-den-surface);
+  color: var(--rails-den-text);
+}
+
+.rails-den-admin .flash--notice {
+  border-color: rgba(117, 214, 163, 0.3);
+  color: var(--rails-den-success);
+}
+
+.rails-den-admin .flash--alert {
+  border-color: rgba(249, 112, 102, 0.3);
+  color: var(--rails-den-danger);
+}
+
+.rails-den-admin .pagination {
+  color: var(--rails-den-muted);
+}
+
+.rails-den-admin .pagination a {
+  color: var(--rails-den-text);
+}
+
+/*
+ * Responsive
+ */
+
+@media (max-width: 900px) {
+  .rails-den-admin .rails-den-admin-container {
+    display: block;
+  }
+
+  .rails-den-admin .navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 14px;
+    border-right: 0;
+    border-bottom: 1px solid var(--rails-den-border);
+  }
+
+  .rails-den-admin .navigation .button--nav {
+    width: auto;
+    margin: 0 10px 0 0;
+  }
+
+  .rails-den-admin .navigation__link {
+    margin: 0;
+  }
+
+  .rails-den-admin .rails-den-admin-content {
+    padding: 22px 16px 40px;
+  }
+}
+
 @media (max-width: 640px) {
   .rails-den-navbar-inner {
     padding: 0 14px;
@@ -278,5 +894,60 @@ body.rails-den {
 
   .rails-den-auth-card {
     padding: 28px 24px;
+  }
+
+  .rails-den-community {
+    width: min(100% - 24px, 1180px);
+    padding: 28px 0 44px;
+  }
+
+  .rails-den-community-header {
+    margin-bottom: 24px;
+  }
+
+  .rails-den-category-header {
+    padding: 18px;
+  }
+
+  .rails-den-board {
+    min-height: 78px;
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .rails-den-board-icon {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+    font-size: 1.2rem;
+  }
+
+  .rails-den-board-arrow {
+    font-size: 1.6rem;
+  }
+
+  .rails-den-board-page-header {
+    padding: 22px 20px;
+  }
+
+  .rails-den-topics-empty {
+    padding: 48px 20px;
+  }
+
+  .rails-den-admin .navigation {
+    display: block;
+  }
+
+  .rails-den-admin .navigation .button--nav {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+
+  .rails-den-admin .navigation__link {
+    display: block;
+  }
+
+  .rails-den-admin .collection-data {
+    overflow-x: auto;
   }
 }

@@ -1,6 +1,7 @@
 module Admin
   module RailsDen
     class ApplicationController < ::Administrate::ApplicationController
+      include ::RailsDen::Engine.routes.url_helpers
       helper ::RailsDen::Engine.routes.url_helpers
 
       before_action :require_rails_den_administrator!

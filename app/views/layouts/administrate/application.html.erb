@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+<head>
+  <meta charset="utf-8">
+  <meta name="ROBOTS" content="NOODP">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <title>
+    <%= content_for(:title).presence || "Admin" %> - RailsDen
+  </title>
+
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag if defined?(csp_meta_tag) %>
+
+  <%= render "stylesheet" %>
+  <%= stylesheet_link_tag "rails_den/application", media: "all" %>
+
+  <%= yield :head %>
+
+  <%= render "javascript" %>
+</head>
+
+<body class="rails-den rails-den-admin">
+  <%= render "icons" %>
+
+  <%= render "layouts/rails_den/navbar" %>
+
+  <div class="app-container rails-den-admin-container">
+    <%= render "layouts/administrate/application/navigation" %>
+
+    <main class="main-content rails-den-admin-content">
+      <%= render "flashes" %>
+
+      <%= yield %>
+    </main>
+  </div>
+</body>
+</html>

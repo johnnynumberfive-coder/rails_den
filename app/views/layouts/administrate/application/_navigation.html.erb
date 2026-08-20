@@ -1,0 +1,21 @@
+<nav class="navigation">
+  <%= link_to "Back to Community",
+              root_path,
+              class: "button button--alt button--nav" %>
+
+  <%= link_to "Admin Home",
+              admin_root_path,
+              class: "navigation__link" %>
+
+  <%= link_to "Administrators",
+              admin_rails_den_administrators_path,
+              class: "navigation__link" %>
+
+  <%= link_to "Categories",
+              admin_rails_den_categories_path,
+              class: "navigation__link" %>
+
+  <%= link_to "Boards",
+              admin_rails_den_boards_path,
+              class: "navigation__link" %>
+</nav>

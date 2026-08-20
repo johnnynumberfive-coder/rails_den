@@ -10,13 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_20_181858) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_20_212813) do
   create_table "rails_den_administrators", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.string "user_type", null: false
     t.index ["user_type", "user_id"], name: "index_rails_den_administrators_on_user", unique: true
+  end
+
+  create_table "rails_den_boards", force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.boolean "enabled", default: true, null: false
+    t.string "icon"
+    t.integer "position", default: 0, null: false
+    t.string "slug", null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.string "visibility", default: "public", null: false
+    t.index ["category_id", "slug"], name: "index_rails_den_boards_on_category_id_and_slug", unique: true
+    t.index ["category_id"], name: "index_rails_den_boards_on_category_id"
+  end
+
+  create_table "rails_den_categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.boolean "enabled", default: true, null: false
+    t.integer "position", default: 0, null: false
+    t.string "slug", null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.string "visibility", default: "public", null: false
+    t.index ["slug"], name: "index_rails_den_categories_on_slug", unique: true
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -36,5 +63,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_20_181858) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "rails_den_boards", "rails_den_categories", column: "category_id"
   add_foreign_key "sessions", "users"
 end
