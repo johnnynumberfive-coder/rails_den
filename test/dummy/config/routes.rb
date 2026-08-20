@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: redirect("/rails_den/auth_probe")
+  root to: redirect("/rails_den")
 
   resource :registration, only: %i[new create edit update]
   resource :session

@@ -7,21 +7,15 @@
       </p>
     </header>
 
-    <h2 class="rails-den-auth-title">Account settings</h2>
+    <h2 class="rails-den-auth-title">Join the community</h2>
 
     <p class="rails-den-auth-description">
-      Update your email address or change your password.
+      Create your account to get started.
     </p>
-
-    <% if flash[:notice] %>
-      <div class="rails-den-notice">
-        <%= flash[:notice] %>
-      </div>
-    <% end %>
 
     <% if @user.errors.any? %>
       <div class="rails-den-errors">
-        <strong>We couldn't update your account.</strong>
+        <strong>We couldn't create your account.</strong>
 
         <ul>
           <% @user.errors.full_messages.each do |message| %>
@@ -31,13 +25,12 @@
       </div>
     <% end %>
 
-    <%= simple_form_for @user,
-                        url: main_app.registration_path,
-                        method: :patch do |form| %>
+    <%= simple_form_for @user, url: main_app.registration_path do |form| %>
       <div class="rails-den-field">
         <%= form.input :email_address,
                        label: "Email address",
                        required: true,
+                       autofocus: true,
                        input_html: {
                          autocomplete: "email"
                        } %>
@@ -45,9 +38,7 @@
 
       <div class="rails-den-field">
         <%= form.input :password,
-                       label: "New password",
-                       required: false,
-                       hint: "Leave blank to keep your current password.",
+                       required: true,
                        input_html: {
                          autocomplete: "new-password",
                          maxlength: 72
@@ -56,31 +47,22 @@
 
       <div class="rails-den-field">
         <%= form.input :password_confirmation,
-                       label: "Confirm new password",
-                       required: false,
+                       label: "Confirm password",
+                       required: true,
                        input_html: {
                          autocomplete: "new-password",
                          maxlength: 72
                        } %>
       </div>
 
-      <div class="rails-den-field">
-        <%= form.input :current_password,
-                       label: "Current password",
-                       required: true,
-                       input_html: {
-                         autocomplete: "current-password",
-                         maxlength: 72
-                       } %>
-      </div>
-
       <%= form.button :submit,
-                      "Save changes",
+                      "Create account",
                       class: "rails-den-button" %>
     <% end %>
 
     <div class="rails-den-auth-links">
-      <%= link_to "Back to the community", "/rails_den" %>
+      Already have an account?
+      <%= link_to "Sign in", main_app.new_session_path %>
     </div>
   </section>
 </div>

@@ -1,0 +1,25 @@
+<div class="rails-den-auth">
+  <section class="rails-den-auth-card">
+    <header class="rails-den-brand">
+      <h1 class="rails-den-brand-name">RailsDen</h1>
+
+      <p class="rails-den-brand-tagline">
+        Forums. Chat. Community.
+      </p>
+    </header>
+
+    <h2 class="rails-den-auth-title">
+      Welcome to RailsDen
+    </h2>
+
+    <p class="rails-den-auth-description">
+      Your community is up and running.
+    </p>
+
+    <% if current_rails_den_user.respond_to?(:email_address) %>
+      <p class="rails-den-auth-description">
+        Signed in as <strong><%= current_rails_den_user.email_address %></strong>
+      </p>
+    <% end %>
+  </section>
+</div>

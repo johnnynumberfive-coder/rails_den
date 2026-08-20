@@ -16,7 +16,7 @@ class RegistrationsController < ApplicationController
 
     if @user.save
       start_new_session_for(@user)
-      redirect_to "/rails_den/auth_probe"
+      redirect_to "/rails_den"
     else
       render "rails_den/registrations/new",
              status: :unprocessable_entity

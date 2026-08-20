@@ -10,5 +10,5 @@ RailsDen.configure do |config|
     redirect_to main_app.new_session_path
   }
 
-  config.parent_controller = "ApplicationController"
+  config.parent_controller = "RailsDenController"
 end

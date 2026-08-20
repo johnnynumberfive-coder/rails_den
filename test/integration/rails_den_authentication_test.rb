@@ -1,10 +1,12 @@
 require "test_helper"
 
 class RailsDenAuthenticationTest < ActionDispatch::IntegrationTest
-  test "unauthenticated user is sent to host login" do
-    get "/rails_den/auth_probe"
+  test "RailsDen home is available without authentication" do
+    get "/rails_den"
 
-    assert_redirected_to "/session/new"
+    assert_response :success
+    assert_includes response.body, "Welcome to RailsDen"
+    assert_includes response.body, "Sign in"
   end
 
   test "authenticated host user is available inside RailsDen" do
@@ -12,10 +14,6 @@ class RailsDenAuthenticationTest < ActionDispatch::IntegrationTest
       email_address: "member@example.com",
       password: "password123"
     )
-
-    get "/rails_den/auth_probe"
-
-    assert_redirected_to "/session/new"
 
     post "/session", params: {
       session: {
@@ -26,9 +24,11 @@ class RailsDenAuthenticationTest < ActionDispatch::IntegrationTest
 
     assert_response :redirect
 
-    follow_redirect!
+    get "/rails_den"
 
     assert_response :success
-    assert_equal user.email_address, response.body
+    assert_includes response.body, user.email_address
+    assert_includes response.body, "Account"
+    assert_includes response.body, "Sign out"
   end
 end

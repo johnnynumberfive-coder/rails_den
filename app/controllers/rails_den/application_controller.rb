@@ -1,5 +1,7 @@
 module RailsDen
   class ApplicationController < RailsDen.config.parent_controller.constantize
+    layout "rails_den/application"
+
     prepend_before_action :authenticate_rails_den_user!
 
     helper_method :current_rails_den_user,

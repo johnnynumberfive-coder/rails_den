@@ -3,6 +3,8 @@ require "test_helper"
 module RailsDen
   class ApplicationControllerTest < ActiveSupport::TestCase
     setup do
+      RailsDen::ApplicationController
+
       @original_configuration = RailsDen.configuration
       RailsDen.reset_configuration!
     end

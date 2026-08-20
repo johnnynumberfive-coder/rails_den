@@ -1,0 +1,68 @@
+<%
+  rails_den_current_user =
+    if RailsDen.config.current_user_resolver
+      controller.instance_exec(&RailsDen.config.current_user_resolver)
+    elsif controller.respond_to?(RailsDen.config.current_user_method, true)
+      controller.send(RailsDen.config.current_user_method)
+    end
+
+  rails_den_home_path =
+    if main_app.respond_to?(:root_path)
+      main_app.root_path
+    else
+      request.path
+    end
+
+  rails_den_session_routes =
+    main_app.respond_to?(:new_session_path) &&
+      main_app.respond_to?(:session_path)
+
+  rails_den_registration_routes =
+    main_app.respond_to?(:new_registration_path) &&
+      main_app.respond_to?(:edit_registration_path)
+%>
+
+<nav class="rails-den-navbar">
+  <div class="rails-den-navbar-inner">
+    <%= link_to "RailsDen",
+                rails_den_home_path,
+                class: "rails-den-navbar-brand" %>
+
+    <div class="rails-den-navbar-actions">
+      <% if rails_den_current_user %>
+        <% if rails_den_current_user.respond_to?(:email_address) %>
+          <span class="rails-den-navbar-user">
+            <%= rails_den_current_user.email_address %>
+          </span>
+        <% end %>
+
+        <% if rails_den_registration_routes %>
+          <%= link_to "Account",
+                      main_app.edit_registration_path,
+                      class: "rails-den-navbar-link" %>
+        <% end %>
+
+        <% if rails_den_session_routes %>
+          <%= button_to "Sign out",
+                        main_app.session_path,
+                        method: :delete,
+                        class: "rails-den-navbar-button",
+                        form_class: "rails-den-navbar-form" %>
+        <% end %>
+      <% else %>
+        <% if rails_den_session_routes %>
+          <%= link_to "Sign in",
+                      main_app.new_session_path,
+                      class: "rails-den-navbar-link" %>
+        <% end %>
+
+        <% if RailsDen.config.registration_enabled &&
+              rails_den_registration_routes %>
+          <%= link_to "Create account",
+                      main_app.new_registration_path,
+                      class: "rails-den-navbar-button" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</nav>

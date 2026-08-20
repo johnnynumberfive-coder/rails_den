@@ -7,7 +7,6 @@ else
   gem "rails_den", "~> #{RailsDen::VERSION}"
 end
 
-gem "bcrypt"
 
 after_bundle do
   generate "authentication"
@@ -23,6 +22,12 @@ after_bundle do
       attr_accessor :current_password
 
       normalizes :email_address, with: ->(e) { e.strip.downcase }
+    end
+  RUBY
+
+  file "app/controllers/rails_den_controller.rb", <<~RUBY
+    class RailsDenController < ApplicationController
+      allow_unauthenticated_access
     end
   RUBY
 
@@ -89,7 +94,7 @@ after_bundle do
 
         if @user.save
           start_new_session_for(@user)
-          redirect_to "/rails_den/auth_probe"
+          redirect_to "/rails_den"
         else
           render "rails_den/registrations/new",
                  status: :unprocessable_entity
@@ -255,7 +260,7 @@ after_bundle do
   remove_file "app/views/passwords_mailer/reset.text.erb"
 
   route <<~RUBY
-    root to: redirect("/rails_den/auth_probe")
+    root to: redirect("/rails_den")
 
     resource :registration, only: %i[new create edit update]
 
@@ -275,7 +280,7 @@ after_bundle do
         redirect_to main_app.new_session_path
       }
 
-      config.parent_controller = "ApplicationController"
+      config.parent_controller = "RailsDenController"
     end
   RUBY
 

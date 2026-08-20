@@ -26,12 +26,13 @@ class RegistrationTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to "/rails_den/auth_probe"
+    assert_redirected_to "/rails_den"
 
     follow_redirect!
 
     assert_response :success
-    assert_equal "newmember@example.com", response.body
+    assert_includes response.body, "Welcome to RailsDen"
+    assert_includes response.body, "newmember@example.com"
   end
 
   test "invalid registration is rejected" do
