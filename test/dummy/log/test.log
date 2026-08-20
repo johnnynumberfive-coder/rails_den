@@ -9920,3 +9920,1659 @@ RailsDen::CLITest: test_new_requires_an_application_name
 RailsDen::CLITest: test_version_returns_the_RailsDen_version
 ------------------------------------------------------------
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RailsDenAuthenticationTest: test_authenticated_host_user_is_available_inside_RailsDen
+-------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.457443"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 10:56:50.457443"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :authenticate_rails_den_user! rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.625170"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 10:56:50.625170"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/rails_den/auth_probe
+Completed 302 Found in 47ms (ActiveRecord: 1.0ms (2 queries, 0 cached) | GC: 1.1ms)
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 3.8ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------
+RailsDenAuthenticationTest: test_unauthenticated_user_is_sent_to_host_login
+---------------------------------------------------------------------------
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :authenticate_rails_den_user! rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_ApplicationController_as_the_parent_controller
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+ConfigurationTest: test_allows_the_host_application_to_configure_authentication_integration
+-------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+ConfigurationTest: test_allows_registration_to_be_disabled
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+ConfigurationTest: test_defaults_to_no_authentication_handler
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+ConfigurationTest: test_defaults_to_no_current_user_resolver
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_current_user_as_the_host_current_user_method
+--------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+ConfigurationTest: test_registration_is_enabled_by_default
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_authenticate_user!_as_the_host_authentication_method
+----------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------
+ConfigurationTest: test_defaults_to_User_as_the_host_user_class
+---------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------------
+RailsDenInstallViewsGeneratorTest: test_copies_RailsDen_auth_views_into_the_host_application
+--------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_current_user_resolver_takes_precedence_over_current_user_method
+---------------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_returns_the_user_from_the_configured_current_user_method
+--------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_uses_the_configured_authentication_handler_when_present
+-------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_calls_the_configured_authentication_method_when_signed_out
+----------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_can_call_a_private_authentication_method
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_supports_a_custom_current_user_method
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_uses_the_configured_current_user_resolver_when_present
+------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_reports_when_a_RailsDen_user_is_signed_in
+-----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_reports_when_no_RailsDen_user_is_signed_in
+------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_does_not_authenticate_when_already_signed_in
+--------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+RailsDen::CLITest: test_new_requires_an_application_name
+--------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------
+RailsDen::CLITest: test_new_delegates_to_the_Rails_application_generator
+------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------
+RailsDen::CLITest: test_help_returns_success_and_describes_the_new_command
+--------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+RailsDen::CLITest: test_version_returns_the_RailsDen_version
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+RailsDen::CLITest: test_unknown_command_returns_an_error
+--------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+RailsDenTest: test_it_has_a_version_number
+------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------------
+RailsDen::Generators::InstallGeneratorTest: test_creates_the_RailsDen_initializer
+---------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------
+RegistrationTest: test_registration_page_is_available_without_authentication
+----------------------------------------------------------------------------
+Started GET "/registration/new" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#new as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/registrations/new.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/registrations/new.html.erb within layouts/rails_den/application (Duration: 28.8ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 32.1ms | GC: 0.0ms)
+Completed 200 OK in 39ms (Views: 38.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------
+RegistrationTest: test_account_cannot_be_created_when_registration_is_disabled
+------------------------------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+Filter chain halted as :ensure_registration_enabled rendered or redirected
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_change_email_address
+------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.726366"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 10:56:50.726366"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.9ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.733719"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 10:56:50.733719"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 8ms (ActiveRecord: 1.5ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :current_password. Context: { controller: RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007ddc61db2638>, params: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "controller" => "registrations", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "email_address" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email_address", "[FILTERED]"], ["updated_at", "2026-08-20 10:56:50.742820"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/registration/edit
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RegistrationTest: test_registration_page_is_unavailable_when_registration_is_disabled
+-------------------------------------------------------------------------------------
+Started GET "/registration/new" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#new as HTML
+Filter chain halted as :ensure_registration_enabled rendered or redirected
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+RegistrationTest: test_disabling_registration_does_not_disable_account_settings
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.749917"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 10:56:50.749917"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.754009"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 10:56:50.754009"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+RegistrationTest: test_account_settings_require_authentication
+--------------------------------------------------------------
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#edit as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :require_authentication rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_view_account_settings
+-------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.772367"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 10:56:50.772367"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (1.1ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.776961"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 10:56:50.776961"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 2.5ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------
+RegistrationTest: test_invalid_registration_is_rejected
+-------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/registrations/new.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/registrations/new.html.erb within layouts/rails_den/application (Duration: 4.1ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 4.9ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 10ms (Views: 6.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RegistrationTest: test_visitor_can_create_an_account_and_enter_RailsDen_authenticated
+-------------------------------------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.807347"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 10:56:50.807347"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.808965"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 10:56:50.808965"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/rails_den/auth_probe
+Completed 302 Found in 6ms (ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+RegistrationTest: test_current_password_is_required_to_update_account
+---------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.822534"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 10:56:50.822534"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.9ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.827342"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 10:56:50.827342"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 8ms (ActiveRecord: 1.3ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 2.2ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 5ms (Views: 2.5ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_change_password
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.845750"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 10:56:50.845750"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 10:56:50.853662"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 10:56:50.853662"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 05:56:50 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :current_password. Context: { controller: RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007ddc6224f010>, params: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "controller" => "registrations", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 10:56:50.861513"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."user_id" = ? AND "sessions"."id" != ?[0m  [["user_id", 1], ["id", 1]]
+Redirected to http://www.example.com/registration/edit
+Completed 302 Found in 7ms (ActiveRecord: 0.7ms (4 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RegistrationTest: test_registration_page_is_unavailable_when_registration_is_disabled
+-------------------------------------------------------------------------------------
+Started GET "/registration/new" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#new as HTML
+Filter chain halted as :ensure_registration_enabled rendered or redirected
+Completed 404 Not Found in 9ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------
+RegistrationTest: test_account_cannot_be_created_when_registration_is_disabled
+------------------------------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+Filter chain halted as :ensure_registration_enabled rendered or redirected
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+RegistrationTest: test_account_settings_require_authentication
+--------------------------------------------------------------
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#edit as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :require_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_change_password
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.088408"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:36:24.088408"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.112006"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:36:24.112006"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 21ms (ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :current_password. Context: { controller: RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007a759a497318>, params: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "controller" => "registrations", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:36:24.121517"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."user_id" = ? AND "sessions"."id" != ?[0m  [["user_id", 1], ["id", 1]]
+Redirected to http://www.example.com/registration/edit
+Completed 302 Found in 8ms (ActiveRecord: 0.7ms (4 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_change_email_address
+------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.128549"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:36:24.128549"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.132314"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:36:24.132314"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.4ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :current_password. Context: { controller: RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007a759a5283e0>, params: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "controller" => "registrations", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "email_address" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email_address", "[FILTERED]"], ["updated_at", "2026-08-20 12:36:24.141526"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/registration/edit
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+RegistrationTest: test_current_password_is_required_to_update_account
+---------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.146850"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:36:24.146850"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.2ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.150456"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:36:24.150456"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 17.5ms | GC: 1.7ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 19.9ms | GC: 1.9ms)
+Completed 422 Unprocessable Content in 53ms (Views: 50.5ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 25.7ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_view_account_settings
+-------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.210054"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:36:24.210054"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.2ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.216667"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:36:24.216667"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 2.3ms | GC: 0.4ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 2.5ms | GC: 0.4ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.4ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------
+RegistrationTest: test_invalid_registration_is_rejected
+-------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/new.html.erb within layouts/rails_den/application (Duration: 2.9ms | GC: 0.2ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 3.2ms | GC: 0.2ms)
+Completed 422 Unprocessable Content in 5ms (Views: 3.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------
+RegistrationTest: test_registration_page_is_available_without_authentication
+----------------------------------------------------------------------------
+Started GET "/registration/new" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/new.html.erb within layouts/rails_den/application (Duration: 2.0ms | GC: 0.3ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 2.4ms | GC: 0.3ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RegistrationTest: test_visitor_can_create_an_account_and_enter_RailsDen_authenticated
+-------------------------------------------------------------------------------------
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.242191"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:36:24.242191"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.1ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.243974"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:36:24.243974"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/rails_den/auth_probe
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+RegistrationTest: test_disabling_registration_does_not_disable_account_settings
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.256467"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:36:24.256467"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.2ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.260102"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:36:24.260102"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.2ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------------
+RailsDen::Generators::InstallGeneratorTest: test_creates_the_RailsDen_initializer
+---------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------------
+RailsDen::CLITest: test_new_delegates_to_Rails_and_tells_user_about_install_views
+---------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+RailsDen::CLITest: test_install_views_rejects_unknown_options
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+RailsDen::CLITest: test_install_views_invokes_the_RailsDen_view_installer
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+RailsDen::CLITest: test_unknown_command_returns_an_error
+--------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------
+RailsDen::CLITest: test_install_views_supports_force
+----------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+RailsDen::CLITest: test_default_standalone_template_exists
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+RailsDen::CLITest: test_help_describes_the_new_and_install_views_commands
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+RailsDen::CLITest: test_version_returns_the_RailsDen_version
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+RailsDen::CLITest: test_new_requires_an_application_name
+--------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_reports_when_no_RailsDen_user_is_signed_in
+------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_does_not_authenticate_when_already_signed_in
+--------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_current_user_resolver_takes_precedence_over_current_user_method
+---------------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_supports_a_custom_current_user_method
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_reports_when_a_RailsDen_user_is_signed_in
+-----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_calls_the_configured_authentication_method_when_signed_out
+----------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_uses_the_configured_authentication_handler_when_present
+-------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_can_call_a_private_authentication_method
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_uses_the_configured_current_user_resolver_when_present
+------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_returns_the_user_from_the_configured_current_user_method
+--------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------
+RailsDenAuthenticationTest: test_unauthenticated_user_is_sent_to_host_login
+---------------------------------------------------------------------------
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :authenticate_rails_den_user! rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RailsDenAuthenticationTest: test_authenticated_host_user_is_available_inside_RailsDen
+-------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.284090"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:36:24.284090"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :authenticate_rails_den_user! rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.2ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:36:24.292423"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:36:24.292423"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/rails_den/auth_probe
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 07:36:24 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------------
+RailsDenInstallViewsGeneratorTest: test_copies_RailsDen_auth_views_into_the_host_application
+--------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+RailsDenTest: test_it_has_a_version_number
+------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_current_user_as_the_host_current_user_method
+--------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------
+ConfigurationTest: test_defaults_to_User_as_the_host_user_class
+---------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_ApplicationController_as_the_parent_controller
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+ConfigurationTest: test_defaults_to_no_current_user_resolver
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_authenticate_user!_as_the_host_authentication_method
+----------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+ConfigurationTest: test_allows_registration_to_be_disabled
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+ConfigurationTest: test_allows_the_host_application_to_configure_authentication_integration
+-------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+ConfigurationTest: test_registration_is_enabled_by_default
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+ConfigurationTest: test_defaults_to_no_authentication_handler
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+RailsDenTest: test_it_has_a_version_number
+------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------------
+RailsDenInstallViewsGeneratorTest: test_copies_RailsDen_auth_views_into_the_host_application
+--------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RailsDenAuthenticationTest: test_authenticated_host_user_is_available_inside_RailsDen
+-------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.095665"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:54:28.095665"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :authenticate_rails_den_user! rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.182294"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:54:28.182294"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/rails_den/auth_probe
+Completed 302 Found in 28ms (ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------
+RailsDenAuthenticationTest: test_unauthenticated_user_is_sent_to_host_login
+---------------------------------------------------------------------------
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :authenticate_rails_den_user! rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------
+RegistrationTest: test_registration_page_is_available_without_authentication
+----------------------------------------------------------------------------
+Started GET "/registration/new" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/new.html.erb within layouts/rails_den/application (Duration: 14.9ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 17.2ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 22.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RegistrationTest: test_registration_page_is_unavailable_when_registration_is_disabled
+-------------------------------------------------------------------------------------
+Started GET "/registration/new" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#new as HTML
+Filter chain halted as :ensure_registration_enabled rendered or redirected
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_view_account_settings
+-------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.228715"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:54:28.228715"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.232459"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:54:28.232459"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 3.1ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 3.7ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+RegistrationTest: test_current_password_is_required_to_update_account
+---------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.245761"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:54:28.245761"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.252081"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:54:28.252081"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 5ms (Views: 2.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_change_password
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.264010"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:54:28.264010"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.2ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.267752"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:54:28.267752"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :current_password. Context: { controller: RegistrationsController, action: update, request: #<ActionDispatch::Request:0x0000772df890db78>, params: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "controller" => "registrations", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:54:28.274564"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."user_id" = ? AND "sessions"."id" != ?[0m  [["user_id", 1], ["id", 1]]
+Redirected to http://www.example.com/registration/edit
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms (4 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_change_email_address
+------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.282364"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:54:28.282364"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.286957"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:54:28.286957"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :current_password. Context: { controller: RegistrationsController, action: update, request: #<ActionDispatch::Request:0x0000772df797a788>, params: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "controller" => "registrations", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "email_address" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email_address", "[FILTERED]"], ["updated_at", "2026-08-20 12:54:28.296122"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/registration/edit
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RegistrationTest: test_visitor_can_create_an_account_and_enter_RailsDen_authenticated
+-------------------------------------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.301985"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:54:28.301985"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.2ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.303452"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:54:28.303452"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/rails_den/auth_probe
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------
+RegistrationTest: test_invalid_registration_is_rejected
+-------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/new.html.erb within layouts/rails_den/application (Duration: 3.6ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 6ms (Views: 4.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+RegistrationTest: test_disabling_registration_does_not_disable_account_settings
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.320191"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 12:54:28.320191"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.2ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 12:54:28.324167"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 12:54:28.324167"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 3.5ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------
+RegistrationTest: test_account_cannot_be_created_when_registration_is_disabled
+------------------------------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+Filter chain halted as :ensure_registration_enabled rendered or redirected
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+RegistrationTest: test_account_settings_require_authentication
+--------------------------------------------------------------
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 07:54:28 -0500
+Processing by RegistrationsController#edit as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :require_authentication rendered or redirected
+Completed 302 Found in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------------
+RailsDen::Generators::InstallGeneratorTest: test_creates_the_RailsDen_initializer
+---------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_supports_a_custom_current_user_method
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_uses_the_configured_authentication_handler_when_present
+-------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_reports_when_a_RailsDen_user_is_signed_in
+-----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_reports_when_no_RailsDen_user_is_signed_in
+------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_does_not_authenticate_when_already_signed_in
+--------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_current_user_resolver_takes_precedence_over_current_user_method
+---------------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_uses_the_configured_current_user_resolver_when_present
+------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_returns_the_user_from_the_configured_current_user_method
+--------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_calls_the_configured_authentication_method_when_signed_out
+----------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_can_call_a_private_authentication_method
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+ConfigurationTest: test_defaults_to_no_current_user_resolver
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+ConfigurationTest: test_defaults_to_no_authentication_handler
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_authenticate_user!_as_the_host_authentication_method
+----------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------
+ConfigurationTest: test_defaults_to_User_as_the_host_user_class
+---------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_ApplicationController_as_the_parent_controller
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+ConfigurationTest: test_registration_is_enabled_by_default
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+ConfigurationTest: test_allows_registration_to_be_disabled
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_current_user_as_the_host_current_user_method
+--------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+ConfigurationTest: test_allows_the_host_application_to_configure_authentication_integration
+-------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+RailsDen::CLITest: test_unknown_command_returns_an_error
+--------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+RailsDen::CLITest: test_new_requires_an_application_name
+--------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------
+RailsDen::CLITest: test_install_views_supports_force
+----------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+RailsDen::CLITest: test_install_views_rejects_unknown_options
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+RailsDen::CLITest: test_install_views_invokes_the_RailsDen_view_installer
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+RailsDen::CLITest: test_version_returns_the_RailsDen_version
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+RailsDen::CLITest: test_default_standalone_template_exists
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------------
+RailsDen::CLITest: test_new_delegates_to_Rails_with_the_RailsDen_standalone_template
+------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+RailsDen::CLITest: test_help_describes_the_new_and_install_views_commands
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+RailsDen::CLITest: test_new_requires_an_application_name
+--------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------------
+RailsDen::CLITest: test_new_delegates_to_Rails_with_the_RailsDen_standalone_template
+------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+RailsDen::CLITest: test_default_standalone_template_exists
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------
+RailsDen::CLITest: test_unknown_command_returns_an_error
+--------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+RailsDen::CLITest: test_version_returns_the_RailsDen_version
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+RailsDen::CLITest: test_install_views_invokes_the_RailsDen_view_installer
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------
+RailsDen::CLITest: test_install_views_supports_force
+----------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+RailsDen::CLITest: test_install_views_rejects_unknown_options
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------
+RailsDen::CLITest: test_help_describes_the_new_and_install_views_commands
+-------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------
+RailsDenTest: test_it_has_a_version_number
+------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------------
+RailsDenInstallViewsGeneratorTest: test_copies_RailsDen_auth_views_into_the_host_application
+--------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+ConfigurationTest: test_defaults_to_no_authentication_handler
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_current_user_as_the_host_current_user_method
+--------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+ConfigurationTest: test_allows_registration_to_be_disabled
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------
+ConfigurationTest: test_defaults_to_no_current_user_resolver
+------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------
+ConfigurationTest: test_registration_is_enabled_by_default
+----------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_ApplicationController_as_the_parent_controller
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------------
+ConfigurationTest: test_defaults_to_authenticate_user!_as_the_host_authentication_method
+----------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------
+ConfigurationTest: test_defaults_to_User_as_the_host_user_class
+---------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------
+ConfigurationTest: test_allows_the_host_application_to_configure_authentication_integration
+-------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_uses_the_configured_current_user_resolver_when_present
+------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_reports_when_no_RailsDen_user_is_signed_in
+------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_returns_the_user_from_the_configured_current_user_method
+--------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-----------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_reports_when_a_RailsDen_user_is_signed_in
+-----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_current_user_resolver_takes_precedence_over_current_user_method
+---------------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_calls_the_configured_authentication_method_when_signed_out
+----------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_uses_the_configured_authentication_handler_when_present
+-------------------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_does_not_authenticate_when_already_signed_in
+--------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_supports_a_custom_current_user_method
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------------
+RailsDen::ApplicationControllerTest: test_can_call_a_private_authentication_method
+----------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RailsDenAuthenticationTest: test_authenticated_host_user_is_available_inside_RailsDen
+-------------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.405537"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 13:02:52.405537"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :authenticate_rails_den_user! rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+Started POST "/session" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.4ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.491492"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 13:02:52.491492"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/rails_den/auth_probe
+Completed 302 Found in 29ms (ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.5ms)
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------
+RailsDenAuthenticationTest: test_unauthenticated_user_is_sent_to_host_login
+---------------------------------------------------------------------------
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :authenticate_rails_den_user! rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------------------
+RailsDen::Generators::InstallGeneratorTest: test_creates_the_RailsDen_initializer
+---------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RegistrationTest: test_visitor_can_create_an_account_and_enter_RailsDen_authenticated
+-------------------------------------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.516775"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 13:02:52.516775"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.2ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.519321"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 13:02:52.519321"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/rails_den/auth_probe
+Completed 302 Found in 6ms (ActiveRecord: 0.9ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+---------------------------------------------------------------------
+RegistrationTest: test_current_password_is_required_to_update_account
+---------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.526670"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 13:02:52.526670"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.530419"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 13:02:52.530419"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 15.0ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 17.2ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 24ms (Views: 21.4ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------
+RegistrationTest: test_disabling_registration_does_not_disable_account_settings
+-------------------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.561002"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 13:02:52.561002"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.5ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.565358"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 13:02:52.565358"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_view_account_settings
+-------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.577354"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 13:02:52.577354"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.5ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.581803"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 13:02:52.581803"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 0.0ms)
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 2.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_change_email_address
+------------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.593573"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 13:02:52.593573"]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.5ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.598021"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 13:02:52.598021"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :current_password. Context: { controller: RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007dcf6acd4e40>, params: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "controller" => "registrations", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE "users" SET "email_address" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["email_address", "[FILTERED]"], ["updated_at", "2026-08-20 13:02:52.606640"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/registration/edit
+Completed 302 Found in 5ms (ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+------------------------------------------------------------------------------
+RegistrationTest: test_account_cannot_be_created_when_registration_is_disabled
+------------------------------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+Filter chain halted as :ensure_registration_enabled rendered or redirected
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+----------------------------------------------------------------------------
+RegistrationTest: test_registration_page_is_available_without_authentication
+----------------------------------------------------------------------------
+Started GET "/registration/new" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/new.html.erb within layouts/rails_den/application (Duration: 3.3ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 3.7ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------
+RegistrationTest: test_authenticated_user_can_change_password
+-------------------------------------------------------------
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.621387"], ["email_address", "[FILTERED]"], ["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 13:02:52.621387"]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started POST "/session" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = ? LIMIT ?[0m  [["email_address", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mSession Create (0.3ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["created_at", "2026-08-20 13:02:52.625318"], ["ip_address", "127.0.0.1"], ["updated_at", "2026-08-20 13:02:52.625318"], ["user_agent", nil], ["user_id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :current_password. Context: { controller: RegistrationsController, action: update, request: #<ActionDispatch::Request:0x00007dcf6ada06f8>, params: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "controller" => "registrations", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "password_digest" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["password_digest", "[FILTERED]"], ["updated_at", "2026-08-20 13:02:52.632389"], ["id", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."user_id" = ? AND "sessions"."id" != ?[0m  [["user_id", 1], ["id", 1]]
+Redirected to http://www.example.com/registration/edit
+Completed 302 Found in 8ms (ActiveRecord: 0.8ms (4 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------
+RegistrationTest: test_invalid_registration_is_rejected
+-------------------------------------------------------
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}}
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/new.html.erb within layouts/rails_den/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 2.6ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 5ms (Views: 2.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mCACHE User Count (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+-------------------------------------------------------------------------------------
+RegistrationTest: test_registration_page_is_unavailable_when_registration_is_disabled
+-------------------------------------------------------------------------------------
+Started GET "/registration/new" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#new as HTML
+Filter chain halted as :ensure_registration_enabled rendered or redirected
+Completed 404 Not Found in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mBEGIN deferred TRANSACTION[0m
+--------------------------------------------------------------
+RegistrationTest: test_account_settings_require_authentication
+--------------------------------------------------------------
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 08:02:52 -0500
+Processing by RegistrationsController#edit as HTML
+Redirected to http://www.example.com/session/new
+Filter chain halted as :require_authentication rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION[0m

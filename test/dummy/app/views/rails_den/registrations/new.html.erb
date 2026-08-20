@@ -1,0 +1,68 @@
+<div class="rails-den-auth">
+  <section class="rails-den-auth-card">
+    <header class="rails-den-brand">
+      <h1 class="rails-den-brand-name">RailsDen</h1>
+      <p class="rails-den-brand-tagline">
+        Forums. Chat. Community.
+      </p>
+    </header>
+
+    <h2 class="rails-den-auth-title">Join the community</h2>
+
+    <p class="rails-den-auth-description">
+      Create your account to get started.
+    </p>
+
+    <% if @user.errors.any? %>
+      <div class="rails-den-errors">
+        <strong>We couldn't create your account.</strong>
+
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= simple_form_for @user, url: main_app.registration_path do |form| %>
+      <div class="rails-den-field">
+        <%= form.input :email_address,
+                       label: "Email address",
+                       required: true,
+                       autofocus: true,
+                       input_html: {
+                         autocomplete: "email"
+                       } %>
+      </div>
+
+      <div class="rails-den-field">
+        <%= form.input :password,
+                       required: true,
+                       input_html: {
+                         autocomplete: "new-password",
+                         maxlength: 72
+                       } %>
+      </div>
+
+      <div class="rails-den-field">
+        <%= form.input :password_confirmation,
+                       label: "Confirm password",
+                       required: true,
+                       input_html: {
+                         autocomplete: "new-password",
+                         maxlength: 72
+                       } %>
+      </div>
+
+      <%= form.button :submit,
+                      "Create account",
+                      class: "rails-den-button" %>
+    <% end %>
+
+    <div class="rails-den-auth-links">
+      Already have an account?
+      <%= link_to "Sign in", main_app.new_session_path %>
+    </div>
+  </section>
+</div>

@@ -258,3 +258,104 @@ Processing by RegistrationsController#edit as HTML
 Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.3ms)
 
 
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Started GET "/sessions/new" for ::1 at 2026-08-20 06:01:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Dummy'*/[0m
+  
+ActionController::RoutingError (No route matches [GET] "/sessions/new"):
+  
+Started GET "/favicon.ico" for ::1 at 2026-08-20 06:01:20 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/sessionn/new" for ::1 at 2026-08-20 06:01:35 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/sessionn/new"):
+  
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 06:03:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Dummy'*/[0m
+Processing by RegistrationsController#edit as HTML
+Redirected to http://127.0.0.1:3001/session/new
+↳ app/controllers/concerns/authentication.rb:34:in 'Authentication#request_authentication'
+Filter chain halted as :require_authentication rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 06:03:20 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 18.3ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 21.9ms | GC: 0.0ms)
+Completed 200 OK in 60ms (Views: 37.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2026-08-20 06:03:20 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 06:03:36 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 3.7ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 06:03:37 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 06:03:37 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 2.8ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 06:03:38 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 3.6ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 4.8ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 06:03:55 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 2.2ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 06:07:09 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 2.4ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 3.5ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 06:07:46 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 3.2ms | GC: 0.0ms)
+  Rendered layout layouts/rails_den/application.html.erb (Duration: 4.1ms | GC: 0.0ms)
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+

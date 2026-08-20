@@ -1,0 +1,14 @@
+Hello,
+
+We received a request to reset the password for your RailsDen account.
+
+Reset your password here:
+
+<%= edit_password_url(@user.password_reset_token) %>
+
+This link will expire in <%= distance_of_time_in_words(
+  0,
+  @user.password_reset_token_expires_in
+) %>.
+
+If you didn't request a password reset, you can safely ignore this email.
