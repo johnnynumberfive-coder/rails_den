@@ -44,3 +44,217 @@ FOREIGN KEY ("user_id")
   [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Dummy'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Dummy'*/[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Dummy'*/[0m
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Started GET "/" for 127.0.0.1 at 2026-08-19 18:28:21 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Dummy'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/railties-8.1.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/railties-8.1.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 3.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/registrations/new" for 127.0.0.1 at 2026-08-19 18:28:45 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/registrations/new"):
+  
+Started GET "/registration/new" for 127.0.0.1 at 2026-08-19 18:29:33 -0500
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered registrations/new.html.erb within layouts/application (Duration: 3.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | GC: 0.0ms)
+Completed 200 OK in 38ms (Views: 7.5ms | ActiveRecord: 1.5ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Generating image variants require the image_processing gem. Please add `gem "image_processing", "~> 1.2"` to your Gemfile or set `config.active_storage.variant_processor = :disabled`.
+Started GET "/" for 127.0.0.1 at 2026-08-20 00:06:09 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Dummy'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/railties-8.1.3.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/railties-8.1.3.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 3.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 00:06:27 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 26.6ms | GC: 0.2ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 30.2ms | GC: 0.5ms)
+Completed 200 OK in 45ms (Views: 31.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 00:09:30 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 1.8ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 2.3ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for 127.0.0.1 at 2026-08-20 00:10:46 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/registration/new" for 127.0.0.1 at 2026-08-20 00:30:33 -0500
+Processing by RegistrationsController#new as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/registrations/new.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/registrations/new.html.erb within layouts/rails_den/application (Duration: 2.9ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 3.7ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 5.0ms | ActiveRecord: 1.2ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/registration" for 127.0.0.1 at 2026-08-20 00:31:11 -0500
+Processing by RegistrationsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]"}, "commit" => "Create account"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:17:in 'RegistrationsController#create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "email_address", "password_digest", "updated_at") VALUES ('2026-08-20 05:31:11.810402', 'test@example.com', '$2a$12$7BqpjLnr8550NZMFoK9R4ubmRGADIvqpdXMmc8DUJBe0VS8TRkVh.', '2026-08-20 05:31:11.810402') RETURNING "id" /*action='create',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:17:in 'RegistrationsController#create'
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:17:in 'RegistrationsController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in 'Authentication#start_new_session_for'
+  [1m[36mSession Create (1.4ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES ('2026-08-20 05:31:11.842225', '127.0.0.1', '2026-08-20 05:31:11.842225', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36', 1) RETURNING "id" /*action='create',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in 'Authentication#start_new_session_for'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in 'Authentication#start_new_session_for'
+Redirected to http://127.0.0.1:3001/rails_den/auth_probe
+↳ app/controllers/registrations_controller.rb:19:in 'RegistrationsController#create'
+Completed 302 Found in 250ms (ActiveRecord: 13.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 00:31:11 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='auth_probe'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='auth_probe'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 00:31:47 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='edit',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='Dummy',controller='registrations'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::MissingTemplate (Missing template rails_den/registrations/edit with {locale: [:en], formats: [:html], variants: [], handlers: [:raw, :erb, :html, :builder, :ruby]}.
+
+Searched in:
+  * "/home/number5/rails_den/test/dummy/app/views"
+  * "/home/number5/rails_den/app/views"
+  * "/home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/actiontext-8.1.3.1/app/views"
+  * "/home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/actionmailbox-8.1.3.1/app/views"
+):
+  
+app/controllers/registrations_controller.rb:29:in 'RegistrationsController#edit'
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 00:35:11 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='edit',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='Dummy',controller='registrations'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 3.2ms | GC: 0.1ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 3.9ms | GC: 0.1ms)
+Completed 200 OK in 18ms (Views: 5.1ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.2ms)
+
+
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 00:35:44 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "commit" => "Save changes"}
+  [1m[36mSession Load (0.3ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='update',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='update',application='Dummy',controller='registrations'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 2.3ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 224ms (Views: 2.7ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.1ms)
+
+
+Started PATCH "/registration" for 127.0.0.1 at 2026-08-20 00:37:02 -0500
+Processing by RegistrationsController#update as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "commit" => "Save changes"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='update',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='update',application='Dummy',controller='registrations'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+[31mUnpermitted parameter: :current_password. Context: { controller: RegistrationsController, action: update, request: #<ActionDispatch::Request:0x000079af3e92e7f0>, params: {"_method" => "patch", "authenticity_token" => "[FILTERED]", "user" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "current_password" => "[FILTERED]"}, "commit" => "Save changes", "controller" => "registrations", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:50:in 'RegistrationsController#update'
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "email_address" = 'john@oakharborventures.com', "updated_at" = '2026-08-20 05:37:02.734048' WHERE "users"."id" = 1 /*action='update',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:50:in 'RegistrationsController#update'
+  [1m[36mTRANSACTION (10.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/registrations_controller.rb:50:in 'RegistrationsController#update'
+Redirected to http://127.0.0.1:3001/registration/edit
+↳ app/controllers/registrations_controller.rb:53:in 'RegistrationsController#update'
+Completed 302 Found in 233ms (ActiveRecord: 11.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 00:37:02 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='edit',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='Dummy',controller='registrations'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 2.1ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 2.4ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 2.7ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 00:37:19 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='auth_probe'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='auth_probe'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 0.7ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails_den/auth_probe" for 127.0.0.1 at 2026-08-20 00:41:39 -0500
+Processing by RailsDen::AuthProbeController#show as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='auth_probe'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='auth_probe'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  Rendering text template
+  Rendered text template (Duration: 0.0ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 0.7ms | ActiveRecord: 1.3ms (2 queries, 0 cached) | GC: 5.4ms)
+
+
+Started GET "/registration/edit" for 127.0.0.1 at 2026-08-20 00:42:03 -0500
+Processing by RegistrationsController#edit as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 1 LIMIT 1 /*action='edit',application='Dummy',controller='registrations'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='edit',application='Dummy',controller='registrations'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/registrations/edit.html.erb within layouts/rails_den/application (Duration: 3.2ms | GC: 0.3ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 3.8ms | GC: 0.3ms)
+Completed 200 OK in 9ms (Views: 5.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.3ms)
+
+

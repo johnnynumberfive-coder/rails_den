@@ -1,0 +1,55 @@
+<div class="rails-den-auth">
+  <section class="rails-den-auth-card">
+    <header class="rails-den-brand">
+      <h1 class="rails-den-brand-name">RailsDen</h1>
+      <p class="rails-den-brand-tagline">
+        Forums. Chat. Community.
+      </p>
+    </header>
+
+    <h2 class="rails-den-auth-title">Choose a new password</h2>
+
+    <p class="rails-den-auth-description">
+      Enter and confirm your new password below.
+    </p>
+
+    <% if flash[:alert] %>
+      <div class="rails-den-alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <%= simple_form_for :password,
+                        url: main_app.password_path(params[:token]),
+                        method: :put do |form| %>
+      <div class="rails-den-field">
+        <%= form.input :password,
+                       label: "New password",
+                       required: true,
+                       autofocus: true,
+                       input_html: {
+                         autocomplete: "new-password",
+                         maxlength: 72
+                       } %>
+      </div>
+
+      <div class="rails-den-field">
+        <%= form.input :password_confirmation,
+                       label: "Confirm new password",
+                       required: true,
+                       input_html: {
+                         autocomplete: "new-password",
+                         maxlength: 72
+                       } %>
+      </div>
+
+      <%= form.button :submit,
+                      "Update password",
+                      class: "rails-den-button" %>
+    <% end %>
+
+    <div class="rails-den-auth-links">
+      <%= link_to "Back to sign in", main_app.new_session_path %>
+    </div>
+  </section>
+</div>

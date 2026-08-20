@@ -10,7 +10,5 @@ RailsDen.configure do |config|
     redirect_to main_app.new_session_path
   }
 
-  config.parent_authentication_callback = :require_authentication
-
   config.parent_controller = "ApplicationController"
 end

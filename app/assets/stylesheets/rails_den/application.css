@@ -1,15 +1,176 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
  *= require_tree .
  *= require_self
  */
+
+:root {
+  --rails-den-bg: #171a1f;
+  --rails-den-surface: #22262d;
+  --rails-den-surface-input: #1b1f25;
+  --rails-den-text: #ece7df;
+  --rails-den-muted: #a6adb7;
+  --rails-den-border: #373d46;
+  --rails-den-primary: #c83b32;
+  --rails-den-primary-hover: #dc4b41;
+  --rails-den-danger: #f97066;
+  --rails-den-success: #75d6a3;
+  --rails-den-radius: 12px;
+  --rails-den-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body.rails-den {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--rails-den-bg);
+  color: var(--rails-den-text);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.rails-den-shell {
+  min-height: 100vh;
+}
+
+.rails-den-auth {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 20px;
+}
+
+.rails-den-auth-card {
+  width: 100%;
+  max-width: 440px;
+  padding: 36px;
+  background: var(--rails-den-surface);
+  border: 1px solid var(--rails-den-border);
+  border-radius: var(--rails-den-radius);
+  box-shadow: var(--rails-den-shadow);
+}
+
+.rails-den-brand {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.rails-den-brand-name {
+  margin: 0;
+  color: var(--rails-den-text);
+  font-size: 2rem;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+}
+
+.rails-den-brand-tagline {
+  margin: 8px 0 0;
+  color: var(--rails-den-muted);
+}
+
+.rails-den-auth-title {
+  margin: 0 0 8px;
+  color: var(--rails-den-text);
+  font-size: 1.5rem;
+}
+
+.rails-den-auth-description {
+  margin: 0 0 24px;
+  color: var(--rails-den-muted);
+  line-height: 1.5;
+}
+
+.rails-den-field {
+  margin-bottom: 18px;
+}
+
+.rails-den-field label {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--rails-den-text);
+  font-weight: 600;
+}
+
+.rails-den-field input {
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--rails-den-border);
+  border-radius: 8px;
+  background: var(--rails-den-surface-input);
+  color: var(--rails-den-text);
+  font: inherit;
+}
+
+.rails-den-field input::placeholder {
+  color: #737b86;
+}
+
+.rails-den-field input:focus {
+  border-color: var(--rails-den-primary);
+  outline: 3px solid rgba(200, 59, 50, 0.18);
+}
+
+.rails-den-button {
+  width: 100%;
+  padding: 12px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--rails-den-primary);
+  color: #ffffff;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.rails-den-button:hover {
+  background: var(--rails-den-primary-hover);
+}
+
+.rails-den-auth-links {
+  margin-top: 24px;
+  text-align: center;
+  color: var(--rails-den-muted);
+}
+
+.rails-den-auth-links a {
+  color: #e06a62;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.rails-den-auth-links a:hover {
+  color: #ef8179;
+  text-decoration: underline;
+}
+
+.rails-den-alert,
+.rails-den-notice,
+.rails-den-errors {
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  border-radius: 8px;
+}
+
+.rails-den-alert,
+.rails-den-errors {
+  border: 1px solid rgba(249, 112, 102, 0.25);
+  background: rgba(180, 35, 24, 0.16);
+  color: var(--rails-den-danger);
+}
+
+.rails-den-notice {
+  border: 1px solid rgba(117, 214, 163, 0.22);
+  background: rgba(6, 118, 71, 0.16);
+  color: var(--rails-den-success);
+}
+
+.rails-den-errors ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}

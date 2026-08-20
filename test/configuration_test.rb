@@ -2,11 +2,15 @@ require "test_helper"
 
 class ConfigurationTest < ActiveSupport::TestCase
   setup do
+    @original_configuration = RailsDen.configuration
     RailsDen.reset_configuration!
   end
 
   teardown do
-    RailsDen.reset_configuration!
+    RailsDen.instance_variable_set(
+      :@configuration,
+      @original_configuration
+    )
   end
 
   test "defaults to User as the host user class" do
@@ -25,18 +29,36 @@ class ConfigurationTest < ActiveSupport::TestCase
     assert_equal :authenticate_user!, RailsDen.config.authentication_method
   end
 
+  test "defaults to no authentication handler" do
+    assert_nil RailsDen.config.authentication_handler
+  end
+
   test "defaults to ApplicationController as the parent controller" do
     assert_equal "ApplicationController", RailsDen.config.parent_controller
   end
 
+  test "registration is enabled by default" do
+    assert RailsDen.config.registration_enabled
+  end
+
+  test "allows registration to be disabled" do
+    RailsDen.configure do |config|
+      config.registration_enabled = false
+    end
+
+    assert_not RailsDen.config.registration_enabled
+  end
+
   test "allows the host application to configure authentication integration" do
     resolver = -> { Current.user }
+    handler = -> { redirect_to "/login" }
 
     RailsDen.configure do |config|
       config.user_class = "Account"
       config.current_user_method = :signed_in_account
       config.current_user_resolver = resolver
       config.authentication_method = :require_account!
+      config.authentication_handler = handler
       config.parent_controller = "AuthenticatedController"
     end
 
@@ -44,6 +66,7 @@ class ConfigurationTest < ActiveSupport::TestCase
     assert_equal :signed_in_account, RailsDen.config.current_user_method
     assert_same resolver, RailsDen.config.current_user_resolver
     assert_equal :require_account!, RailsDen.config.authentication_method
+    assert_same handler, RailsDen.config.authentication_handler
     assert_equal "AuthenticatedController", RailsDen.config.parent_controller
   end
 end

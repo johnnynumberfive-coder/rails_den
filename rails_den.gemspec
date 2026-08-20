@@ -18,9 +18,18 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
   spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
+  spec.bindir = "exe"
+  spec.executables = [ "rails_den" ]
+
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+    Dir[
+      "{app,config,db,exe,lib}/**/*",
+      "MIT-LICENSE",
+      "Rakefile",
+      "README.md"
+    ]
   end
 
   spec.add_dependency "rails", ">= 8.1.3.1"
+  spec.add_dependency "simple_form", ">= 5.4.1"
 end

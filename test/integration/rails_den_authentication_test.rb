@@ -18,8 +18,10 @@ class RailsDenAuthenticationTest < ActionDispatch::IntegrationTest
     assert_redirected_to "/session/new"
 
     post "/session", params: {
-      email_address: user.email_address,
-      password: "password123"
+      session: {
+        email_address: user.email_address,
+        password: "password123"
+      }
     }
 
     assert_response :redirect

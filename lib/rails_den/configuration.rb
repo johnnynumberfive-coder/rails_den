@@ -5,8 +5,8 @@ module RailsDen
                   :current_user_resolver,
                   :authentication_method,
                   :authentication_handler,
-                  :parent_authentication_callback,
-                  :parent_controller
+                  :parent_controller,
+                  :registration_enabled
 
     def initialize
       @user_class = "User"
@@ -14,8 +14,8 @@ module RailsDen
       @current_user_resolver = nil
       @authentication_method = :authenticate_user!
       @authentication_handler = nil
-      @parent_authentication_callback = nil
       @parent_controller = "ApplicationController"
+      @registration_enabled = true
     end
   end
 end
