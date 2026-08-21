@@ -5514,3 +5514,1536 @@ Processing by RailsDen::TopicsController#show as HTML
 Completed 200 OK in 20ms (Views: 15.1ms | ActiveRecord: 0.7ms (10 queries, 2 cached) | GC: 1.2ms)
 
 
+Started POST "/rails_den/topics/2/posts" for ::1 at 2026-08-20 22:35:03 -0500
+Processing by RailsDen::PostsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "rails_den_post" => {"body" => ""}, "commit" => "Post reply", "topic_id" => "2"}
+  [1m[36mSession Load (0.7ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Topic Load (0.1ms)[0m  [1m[34mSELECT "rails_den_topics".* FROM "rails_den_topics" WHERE "rails_den_topics"."id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mRailsDen::Board Load (0.3ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/topics/show.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/topics/show.html.erb within layouts/rails_den/application (Duration: 0.5ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.2ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method 'any?' for nil)
+Caused by: NoMethodError (undefined method 'any?' for nil)
+
+Information for: ActionView::Template::Error (undefined method 'any?' for nil):
+    56:     </header>
+    57: 
+    58:     <% if @posts.any? %>
+    59:       <div class="rails-den-board-list">
+    60:         <% @posts.each do |post| %>
+    61:           <article class="rails-den-board">
+    62:             <div class="rails-den-board-content">
+  
+/home/number5/rails_den/app/views/rails_den/topics/show.html.erb:59
+actionview (8.1.3.1) lib/action_view/base.rb:281:in 'Kernel#public_send'
+actionview (8.1.3.1) lib/action_view/base.rb:281:in 'ActionView::Base#_run'
+actionview (8.1.3.1) lib/action_view/template.rb:284:in 'block in ActionView::Template#render'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:212:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/template.rb:589:in 'ActionView::Template#instrument_render_template'
+actionview (8.1.3.1) lib/action_view/template.rb:272:in 'ActionView::Template#render'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:66:in 'block (2 levels) in ActionView::TemplateRenderer#render_template'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:60:in 'block in ActionView::TemplateRenderer#render_template'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:76:in 'block in ActionView::TemplateRenderer#render_with_layout'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:75:in 'ActionView::TemplateRenderer#render_with_layout'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:59:in 'ActionView::TemplateRenderer#render_template'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:11:in 'ActionView::TemplateRenderer#render'
+actionview (8.1.3.1) lib/action_view/renderer/renderer.rb:58:in 'ActionView::Renderer#render_template_to_object'
+actionview (8.1.3.1) lib/action_view/renderer/renderer.rb:31:in 'ActionView::Renderer#render_to_object'
+actionview (8.1.3.1) lib/action_view/rendering.rb:136:in 'block in ActionView::Rendering#_render_template'
+actionview (8.1.3.1) lib/action_view/base.rb:308:in 'ActionView::Base#in_rendering_context'
+actionview (8.1.3.1) lib/action_view/rendering.rb:135:in 'ActionView::Rendering#_render_template'
+actionpack (8.1.3.1) lib/action_controller/metal/streaming.rb:179:in 'ActionController::Streaming#_render_template'
+actionview (8.1.3.1) lib/action_view/rendering.rb:122:in 'ActionView::Rendering#render_to_body'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:192:in 'ActionController::Rendering#render_to_body'
+actionpack (8.1.3.1) lib/action_controller/metal/renderers.rb:155:in 'ActionController::Renderers#render_to_body'
+actionpack (8.1.3.1) lib/abstract_controller/rendering.rb:28:in 'AbstractController::Rendering#render'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:173:in 'ActionController::Rendering#render'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:31:in 'block (2 levels) in ActionController::Instrumentation#render'
+activesupport (8.1.3.1) lib/active_support/benchmark.rb:17:in 'ActiveSupport::Benchmark.realtime'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:31:in 'block in ActionController::Instrumentation#render'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:100:in 'ActionController::Instrumentation#cleanup_view_runtime'
+activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:48:in 'ActiveRecord::Railties::ControllerRuntime#cleanup_view_runtime'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:30:in 'ActionController::Instrumentation#render'
+/home/number5/rails_den/app/controllers/rails_den/posts_controller.rb:11:in 'RailsDen::PostsController#create'
+actionpack (8.1.3.1) lib/action_controller/metal/basic_implicit_render.rb:8:in 'ActionController::BasicImplicitRender#send_action'
+actionpack (8.1.3.1) lib/abstract_controller/base.rb:221:in 'AbstractController::Base#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:199:in 'ActionController::Rendering#process_action'
+actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:267:in 'block in AbstractController::Callbacks#process_action'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:121:in 'block in ActiveSupport::Callbacks#run_callbacks'
+actiontext (8.1.3.1) lib/action_text/rendering.rb:24:in 'ActionText::Rendering::ClassMethods#with_renderer'
+actiontext (8.1.3.1) lib/action_text/engine.rb:72:in 'block (4 levels) in <class:Engine>'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:130:in 'BasicObject#instance_exec'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:141:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:266:in 'AbstractController::Callbacks#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/rescue.rb:36:in 'ActionController::Rescue#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:76:in 'block in ActionController::Instrumentation#process_action'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:75:in 'ActionController::Instrumentation#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/params_wrapper.rb:259:in 'ActionController::ParamsWrapper#process_action'
+activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:39:in 'ActiveRecord::Railties::ControllerRuntime#process_action'
+actionpack (8.1.3.1) lib/abstract_controller/base.rb:154:in 'AbstractController::Base#process'
+actionview (8.1.3.1) lib/action_view/rendering.rb:40:in 'ActionView::Rendering#process'
+actionpack (8.1.3.1) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.1.3.1) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:65:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:86:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+railties (8.1.3.1) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+railties (8.1.3.1) lib/rails/railtie.rb:225:in 'Kernel#public_send'
+railties (8.1.3.1) lib/rails/railtie.rb:225:in 'Rails::Railtie.method_missing'
+actionpack (8.1.3.1) lib/action_dispatch/routing/mapper.rb:33:in 'block in <class:Constraints>'
+actionpack (8.1.3.1) lib/action_dispatch/routing/mapper.rb:62:in 'ActionDispatch::Routing::Mapper::Constraints#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:92:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.7) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.7) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.7) lib/rack/conditional_get.rb:44:in 'Rack::ConditionalGet#call'
+rack (3.2.7) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.1.3.1) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:708:in 'ActionDispatch::Cookies#call'
+activerecord (8.1.3.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:101:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+propshaft (1.3.2) lib/propshaft/quiet_assets.rb:11:in 'Propshaft::QuietAssets#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.7) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.7) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+propshaft (1.3.2) lib/propshaft/server.rb:37:in 'Propshaft::Server#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.7) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.1.3.1) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.2) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.2) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.2) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.2) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.2) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.2) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.2) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NoMethodError (undefined method 'any?' for nil):
+  
+/home/number5/rails_den/app/views/rails_den/topics/show.html.erb:59
+actionview (8.1.3.1) lib/action_view/base.rb:281:in 'Kernel#public_send'
+actionview (8.1.3.1) lib/action_view/base.rb:281:in 'ActionView::Base#_run'
+actionview (8.1.3.1) lib/action_view/template.rb:284:in 'block in ActionView::Template#render'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:212:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/template.rb:589:in 'ActionView::Template#instrument_render_template'
+actionview (8.1.3.1) lib/action_view/template.rb:272:in 'ActionView::Template#render'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:66:in 'block (2 levels) in ActionView::TemplateRenderer#render_template'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:60:in 'block in ActionView::TemplateRenderer#render_template'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:76:in 'block in ActionView::TemplateRenderer#render_with_layout'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:75:in 'ActionView::TemplateRenderer#render_with_layout'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:59:in 'ActionView::TemplateRenderer#render_template'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:11:in 'ActionView::TemplateRenderer#render'
+actionview (8.1.3.1) lib/action_view/renderer/renderer.rb:58:in 'ActionView::Renderer#render_template_to_object'
+actionview (8.1.3.1) lib/action_view/renderer/renderer.rb:31:in 'ActionView::Renderer#render_to_object'
+actionview (8.1.3.1) lib/action_view/rendering.rb:136:in 'block in ActionView::Rendering#_render_template'
+actionview (8.1.3.1) lib/action_view/base.rb:308:in 'ActionView::Base#in_rendering_context'
+actionview (8.1.3.1) lib/action_view/rendering.rb:135:in 'ActionView::Rendering#_render_template'
+actionpack (8.1.3.1) lib/action_controller/metal/streaming.rb:179:in 'ActionController::Streaming#_render_template'
+actionview (8.1.3.1) lib/action_view/rendering.rb:122:in 'ActionView::Rendering#render_to_body'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:192:in 'ActionController::Rendering#render_to_body'
+actionpack (8.1.3.1) lib/action_controller/metal/renderers.rb:155:in 'ActionController::Renderers#render_to_body'
+actionpack (8.1.3.1) lib/abstract_controller/rendering.rb:28:in 'AbstractController::Rendering#render'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:173:in 'ActionController::Rendering#render'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:31:in 'block (2 levels) in ActionController::Instrumentation#render'
+activesupport (8.1.3.1) lib/active_support/benchmark.rb:17:in 'ActiveSupport::Benchmark.realtime'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:31:in 'block in ActionController::Instrumentation#render'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:100:in 'ActionController::Instrumentation#cleanup_view_runtime'
+activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:48:in 'ActiveRecord::Railties::ControllerRuntime#cleanup_view_runtime'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:30:in 'ActionController::Instrumentation#render'
+/home/number5/rails_den/app/controllers/rails_den/posts_controller.rb:11:in 'RailsDen::PostsController#create'
+actionpack (8.1.3.1) lib/action_controller/metal/basic_implicit_render.rb:8:in 'ActionController::BasicImplicitRender#send_action'
+actionpack (8.1.3.1) lib/abstract_controller/base.rb:221:in 'AbstractController::Base#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:199:in 'ActionController::Rendering#process_action'
+actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:267:in 'block in AbstractController::Callbacks#process_action'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:121:in 'block in ActiveSupport::Callbacks#run_callbacks'
+actiontext (8.1.3.1) lib/action_text/rendering.rb:24:in 'ActionText::Rendering::ClassMethods#with_renderer'
+actiontext (8.1.3.1) lib/action_text/engine.rb:72:in 'block (4 levels) in <class:Engine>'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:130:in 'BasicObject#instance_exec'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:141:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:266:in 'AbstractController::Callbacks#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/rescue.rb:36:in 'ActionController::Rescue#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:76:in 'block in ActionController::Instrumentation#process_action'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:75:in 'ActionController::Instrumentation#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/params_wrapper.rb:259:in 'ActionController::ParamsWrapper#process_action'
+activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:39:in 'ActiveRecord::Railties::ControllerRuntime#process_action'
+actionpack (8.1.3.1) lib/abstract_controller/base.rb:154:in 'AbstractController::Base#process'
+actionview (8.1.3.1) lib/action_view/rendering.rb:40:in 'ActionView::Rendering#process'
+actionpack (8.1.3.1) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.1.3.1) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:65:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:86:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+railties (8.1.3.1) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+railties (8.1.3.1) lib/rails/railtie.rb:225:in 'Kernel#public_send'
+railties (8.1.3.1) lib/rails/railtie.rb:225:in 'Rails::Railtie.method_missing'
+actionpack (8.1.3.1) lib/action_dispatch/routing/mapper.rb:33:in 'block in <class:Constraints>'
+actionpack (8.1.3.1) lib/action_dispatch/routing/mapper.rb:62:in 'ActionDispatch::Routing::Mapper::Constraints#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:92:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.7) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.7) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.7) lib/rack/conditional_get.rb:44:in 'Rack::ConditionalGet#call'
+rack (3.2.7) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.1.3.1) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:708:in 'ActionDispatch::Cookies#call'
+activerecord (8.1.3.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:101:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+propshaft (1.3.2) lib/propshaft/quiet_assets.rb:11:in 'Propshaft::QuietAssets#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.7) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.7) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+propshaft (1.3.2) lib/propshaft/server.rb:37:in 'Propshaft::Server#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.7) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.1.3.1) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.2) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.2) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.2) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.2) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.2) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.2) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.2) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/rails_den/topics/2/posts" for ::1 at 2026-08-20 22:40:05 -0500
+Processing by RailsDen::PostsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "rails_den_post" => {"body" => ""}, "commit" => "Post reply", "topic_id" => "2"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Topic Load (0.1ms)[0m  [1m[34mSELECT "rails_den_topics".* FROM "rails_den_topics" WHERE "rails_den_topics"."id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mRailsDen::Board Load (0.3ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/topics/show.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/topics/show.html.erb within layouts/rails_den/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 3.7ms (5 queries, 0 cached) | GC: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method 'any?' for nil)
+Caused by: NoMethodError (undefined method 'any?' for nil)
+
+Information for: ActionView::Template::Error (undefined method 'any?' for nil):
+    56:     </header>
+    57: 
+    58:     <% if @posts.any? %>
+    59:       <div class="rails-den-board-list">
+    60:         <% @posts.each do |post| %>
+    61:           <article class="rails-den-board">
+    62:             <div class="rails-den-board-content">
+  
+/home/number5/rails_den/app/views/rails_den/topics/show.html.erb:59
+actionview (8.1.3.1) lib/action_view/base.rb:281:in 'Kernel#public_send'
+actionview (8.1.3.1) lib/action_view/base.rb:281:in 'ActionView::Base#_run'
+actionview (8.1.3.1) lib/action_view/template.rb:284:in 'block in ActionView::Template#render'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:212:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/template.rb:589:in 'ActionView::Template#instrument_render_template'
+actionview (8.1.3.1) lib/action_view/template.rb:272:in 'ActionView::Template#render'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:66:in 'block (2 levels) in ActionView::TemplateRenderer#render_template'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:60:in 'block in ActionView::TemplateRenderer#render_template'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:76:in 'block in ActionView::TemplateRenderer#render_with_layout'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:75:in 'ActionView::TemplateRenderer#render_with_layout'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:59:in 'ActionView::TemplateRenderer#render_template'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:11:in 'ActionView::TemplateRenderer#render'
+actionview (8.1.3.1) lib/action_view/renderer/renderer.rb:58:in 'ActionView::Renderer#render_template_to_object'
+actionview (8.1.3.1) lib/action_view/renderer/renderer.rb:31:in 'ActionView::Renderer#render_to_object'
+actionview (8.1.3.1) lib/action_view/rendering.rb:136:in 'block in ActionView::Rendering#_render_template'
+actionview (8.1.3.1) lib/action_view/base.rb:308:in 'ActionView::Base#in_rendering_context'
+actionview (8.1.3.1) lib/action_view/rendering.rb:135:in 'ActionView::Rendering#_render_template'
+actionpack (8.1.3.1) lib/action_controller/metal/streaming.rb:179:in 'ActionController::Streaming#_render_template'
+actionview (8.1.3.1) lib/action_view/rendering.rb:122:in 'ActionView::Rendering#render_to_body'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:192:in 'ActionController::Rendering#render_to_body'
+actionpack (8.1.3.1) lib/action_controller/metal/renderers.rb:155:in 'ActionController::Renderers#render_to_body'
+actionpack (8.1.3.1) lib/abstract_controller/rendering.rb:28:in 'AbstractController::Rendering#render'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:173:in 'ActionController::Rendering#render'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:31:in 'block (2 levels) in ActionController::Instrumentation#render'
+activesupport (8.1.3.1) lib/active_support/benchmark.rb:17:in 'ActiveSupport::Benchmark.realtime'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:31:in 'block in ActionController::Instrumentation#render'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:100:in 'ActionController::Instrumentation#cleanup_view_runtime'
+activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:48:in 'ActiveRecord::Railties::ControllerRuntime#cleanup_view_runtime'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:30:in 'ActionController::Instrumentation#render'
+/home/number5/rails_den/app/controllers/rails_den/posts_controller.rb:12:in 'RailsDen::PostsController#create'
+actionpack (8.1.3.1) lib/action_controller/metal/basic_implicit_render.rb:8:in 'ActionController::BasicImplicitRender#send_action'
+actionpack (8.1.3.1) lib/abstract_controller/base.rb:221:in 'AbstractController::Base#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:199:in 'ActionController::Rendering#process_action'
+actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:267:in 'block in AbstractController::Callbacks#process_action'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:121:in 'block in ActiveSupport::Callbacks#run_callbacks'
+actiontext (8.1.3.1) lib/action_text/rendering.rb:24:in 'ActionText::Rendering::ClassMethods#with_renderer'
+actiontext (8.1.3.1) lib/action_text/engine.rb:72:in 'block (4 levels) in <class:Engine>'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:130:in 'BasicObject#instance_exec'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:141:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:266:in 'AbstractController::Callbacks#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/rescue.rb:36:in 'ActionController::Rescue#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:76:in 'block in ActionController::Instrumentation#process_action'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:75:in 'ActionController::Instrumentation#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/params_wrapper.rb:259:in 'ActionController::ParamsWrapper#process_action'
+activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:39:in 'ActiveRecord::Railties::ControllerRuntime#process_action'
+actionpack (8.1.3.1) lib/abstract_controller/base.rb:154:in 'AbstractController::Base#process'
+actionview (8.1.3.1) lib/action_view/rendering.rb:40:in 'ActionView::Rendering#process'
+actionpack (8.1.3.1) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.1.3.1) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:65:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:86:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+railties (8.1.3.1) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+railties (8.1.3.1) lib/rails/railtie.rb:225:in 'Kernel#public_send'
+railties (8.1.3.1) lib/rails/railtie.rb:225:in 'Rails::Railtie.method_missing'
+actionpack (8.1.3.1) lib/action_dispatch/routing/mapper.rb:33:in 'block in <class:Constraints>'
+actionpack (8.1.3.1) lib/action_dispatch/routing/mapper.rb:62:in 'ActionDispatch::Routing::Mapper::Constraints#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:92:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.7) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.7) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.7) lib/rack/conditional_get.rb:44:in 'Rack::ConditionalGet#call'
+rack (3.2.7) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.1.3.1) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:708:in 'ActionDispatch::Cookies#call'
+activerecord (8.1.3.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:101:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+propshaft (1.3.2) lib/propshaft/quiet_assets.rb:11:in 'Propshaft::QuietAssets#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.7) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.7) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+propshaft (1.3.2) lib/propshaft/server.rb:37:in 'Propshaft::Server#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.7) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.1.3.1) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.2) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.2) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.2) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.2) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.2) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.2) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.2) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+
+Information for cause: NoMethodError (undefined method 'any?' for nil):
+  
+/home/number5/rails_den/app/views/rails_den/topics/show.html.erb:59
+actionview (8.1.3.1) lib/action_view/base.rb:281:in 'Kernel#public_send'
+actionview (8.1.3.1) lib/action_view/base.rb:281:in 'ActionView::Base#_run'
+actionview (8.1.3.1) lib/action_view/template.rb:284:in 'block in ActionView::Template#render'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:212:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/template.rb:589:in 'ActionView::Template#instrument_render_template'
+actionview (8.1.3.1) lib/action_view/template.rb:272:in 'ActionView::Template#render'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:66:in 'block (2 levels) in ActionView::TemplateRenderer#render_template'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:60:in 'block in ActionView::TemplateRenderer#render_template'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:76:in 'block in ActionView::TemplateRenderer#render_with_layout'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:75:in 'ActionView::TemplateRenderer#render_with_layout'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:59:in 'ActionView::TemplateRenderer#render_template'
+actionview (8.1.3.1) lib/action_view/renderer/template_renderer.rb:11:in 'ActionView::TemplateRenderer#render'
+actionview (8.1.3.1) lib/action_view/renderer/renderer.rb:58:in 'ActionView::Renderer#render_template_to_object'
+actionview (8.1.3.1) lib/action_view/renderer/renderer.rb:31:in 'ActionView::Renderer#render_to_object'
+actionview (8.1.3.1) lib/action_view/rendering.rb:136:in 'block in ActionView::Rendering#_render_template'
+actionview (8.1.3.1) lib/action_view/base.rb:308:in 'ActionView::Base#in_rendering_context'
+actionview (8.1.3.1) lib/action_view/rendering.rb:135:in 'ActionView::Rendering#_render_template'
+actionpack (8.1.3.1) lib/action_controller/metal/streaming.rb:179:in 'ActionController::Streaming#_render_template'
+actionview (8.1.3.1) lib/action_view/rendering.rb:122:in 'ActionView::Rendering#render_to_body'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:192:in 'ActionController::Rendering#render_to_body'
+actionpack (8.1.3.1) lib/action_controller/metal/renderers.rb:155:in 'ActionController::Renderers#render_to_body'
+actionpack (8.1.3.1) lib/abstract_controller/rendering.rb:28:in 'AbstractController::Rendering#render'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:173:in 'ActionController::Rendering#render'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:31:in 'block (2 levels) in ActionController::Instrumentation#render'
+activesupport (8.1.3.1) lib/active_support/benchmark.rb:17:in 'ActiveSupport::Benchmark.realtime'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:31:in 'block in ActionController::Instrumentation#render'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:100:in 'ActionController::Instrumentation#cleanup_view_runtime'
+activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:48:in 'ActiveRecord::Railties::ControllerRuntime#cleanup_view_runtime'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:30:in 'ActionController::Instrumentation#render'
+/home/number5/rails_den/app/controllers/rails_den/posts_controller.rb:12:in 'RailsDen::PostsController#create'
+actionpack (8.1.3.1) lib/action_controller/metal/basic_implicit_render.rb:8:in 'ActionController::BasicImplicitRender#send_action'
+actionpack (8.1.3.1) lib/abstract_controller/base.rb:221:in 'AbstractController::Base#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/rendering.rb:199:in 'ActionController::Rendering#process_action'
+actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:267:in 'block in AbstractController::Callbacks#process_action'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:121:in 'block in ActiveSupport::Callbacks#run_callbacks'
+actiontext (8.1.3.1) lib/action_text/rendering.rb:24:in 'ActionText::Rendering::ClassMethods#with_renderer'
+actiontext (8.1.3.1) lib/action_text/engine.rb:72:in 'block (4 levels) in <class:Engine>'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:130:in 'BasicObject#instance_exec'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:130:in 'block in ActiveSupport::Callbacks#run_callbacks'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:141:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3.1) lib/abstract_controller/callbacks.rb:266:in 'AbstractController::Callbacks#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/rescue.rb:36:in 'ActionController::Rescue#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:76:in 'block in ActionController::Instrumentation#process_action'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'block in ActiveSupport::Notifications.instrument'
+activesupport (8.1.3.1) lib/active_support/notifications/instrumenter.rb:58:in 'ActiveSupport::Notifications::Instrumenter#instrument'
+activesupport (8.1.3.1) lib/active_support/notifications.rb:210:in 'ActiveSupport::Notifications.instrument'
+actionpack (8.1.3.1) lib/action_controller/metal/instrumentation.rb:75:in 'ActionController::Instrumentation#process_action'
+actionpack (8.1.3.1) lib/action_controller/metal/params_wrapper.rb:259:in 'ActionController::ParamsWrapper#process_action'
+activerecord (8.1.3.1) lib/active_record/railties/controller_runtime.rb:39:in 'ActiveRecord::Railties::ControllerRuntime#process_action'
+actionpack (8.1.3.1) lib/abstract_controller/base.rb:154:in 'AbstractController::Base#process'
+actionview (8.1.3.1) lib/action_view/rendering.rb:40:in 'ActionView::Rendering#process'
+actionpack (8.1.3.1) lib/action_controller/metal.rb:252:in 'ActionController::Metal#dispatch'
+actionpack (8.1.3.1) lib/action_controller/metal.rb:335:in 'ActionController::Metal.dispatch'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:65:in 'ActionDispatch::Routing::RouteSet::Dispatcher#dispatch'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:50:in 'ActionDispatch::Routing::RouteSet::Dispatcher#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:86:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+railties (8.1.3.1) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+railties (8.1.3.1) lib/rails/railtie.rb:225:in 'Kernel#public_send'
+railties (8.1.3.1) lib/rails/railtie.rb:225:in 'Rails::Railtie.method_missing'
+actionpack (8.1.3.1) lib/action_dispatch/routing/mapper.rb:33:in 'block in <class:Constraints>'
+actionpack (8.1.3.1) lib/action_dispatch/routing/mapper.rb:62:in 'ActionDispatch::Routing::Mapper::Constraints#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:35:in 'block in ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:92:in 'block in ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'Array#each'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:66:in 'ActionDispatch::Journey::Router#recognize'
+actionpack (8.1.3.1) lib/action_dispatch/journey/router.rb:31:in 'ActionDispatch::Journey::Router#serve'
+actionpack (8.1.3.1) lib/action_dispatch/routing/route_set.rb:906:in 'ActionDispatch::Routing::RouteSet#call'
+railties (8.1.3.1) lib/rails/engine/lazy_route_set.rb:60:in 'Rails::Engine::LazyRouteSet#call'
+rack (3.2.7) lib/rack/tempfile_reaper.rb:20:in 'Rack::TempfileReaper#call'
+rack (3.2.7) lib/rack/etag.rb:29:in 'Rack::ETag#call'
+rack (3.2.7) lib/rack/conditional_get.rb:44:in 'Rack::ConditionalGet#call'
+rack (3.2.7) lib/rack/head.rb:15:in 'Rack::Head#call'
+actionpack (8.1.3.1) lib/action_dispatch/http/content_security_policy.rb:38:in 'ActionDispatch::ContentSecurityPolicy::Middleware#call'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:274:in 'Rack::Session::Abstract::Persisted#context'
+rack-session (2.1.2) lib/rack/session/abstract/id.rb:268:in 'Rack::Session::Abstract::Persisted#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/cookies.rb:708:in 'ActionDispatch::Cookies#call'
+activerecord (8.1.3.1) lib/active_record/migration.rb:671:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.1.3.1) lib/active_support/callbacks.rb:101:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.1.3.1) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.1.3.1) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+propshaft (1.3.2) lib/propshaft/quiet_assets.rb:11:in 'Propshaft::QuietAssets#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/remote_ip.rb:98:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.2.7) lib/rack/method_override.rb:28:in 'Rack::MethodOverride#call'
+rack (3.2.7) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+activesupport (8.1.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:30:in 'ActiveSupport::Cache::Strategy::LocalCache::Middleware#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/executor.rb:20:in 'ActionDispatch::Executor#call'
+propshaft (1.3.2) lib/propshaft/server.rb:37:in 'Propshaft::Server#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.2.7) lib/rack/sendfile.rb:131:in 'Rack::Sendfile#call'
+actionpack (8.1.3.1) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.1.3.1) lib/rails/engine.rb:534:in 'Rails::Engine#call'
+puma (8.0.2) lib/puma/configuration.rb:305:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (8.0.2) lib/puma/response.rb:79:in 'block in Puma::Response#handle_request'
+puma (8.0.2) lib/puma/thread_pool.rb:434:in 'Puma::ThreadPool#with_force_shutdown'
+puma (8.0.2) lib/puma/response.rb:78:in 'Puma::Response#handle_request'
+puma (8.0.2) lib/puma/server.rb:508:in 'Puma::Server#process_client'
+puma (8.0.2) lib/puma/server.rb:263:in 'block in Puma::Server#run'
+puma (8.0.2) lib/puma/thread_pool.rb:246:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/rails_den/topics/2/posts" for ::1 at 2026-08-20 22:44:19 -0500
+Processing by RailsDen::PostsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "rails_den_post" => {"body" => ""}, "commit" => "Post reply", "topic_id" => "2"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Topic Load (0.1ms)[0m  [1m[34mSELECT "rails_den_topics".* FROM "rails_den_topics" WHERE "rails_den_topics"."id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/topics/show.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Post Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_posts" WHERE "rails_den_posts"."topic_id" = 2 AND "rails_den_posts"."id" IS NOT NULL LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mRailsDen::Post Load (0.1ms)[0m  [1m[34mSELECT "rails_den_posts".* FROM "rails_den_posts" WHERE "rails_den_posts"."topic_id" = 2 AND "rails_den_posts"."id" IS NOT NULL ORDER BY "rails_den_posts"."created_at" ASC, "rails_den_posts"."id" ASC /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/topics/show.html.erb within layouts/rails_den/application (Duration: 9.9ms | GC: 0.0ms)
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 15.0ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 56ms (Views: 15.8ms | ActiveRecord: 3.1ms (10 queries, 2 cached) | GC: 0.1ms)
+
+
+Started POST "/rails_den/topics/2/posts" for ::1 at 2026-08-20 22:45:44 -0500
+Processing by RailsDen::PostsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "rails_den_post" => {"body" => ""}, "commit" => "Post reply", "topic_id" => "2"}
+  [1m[36mSession Load (0.2ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Topic Load (0.1ms)[0m  [1m[34mSELECT "rails_den_topics".* FROM "rails_den_topics" WHERE "rails_den_topics"."id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/topics/show.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Post Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_posts" WHERE "rails_den_posts"."topic_id" = 2 AND "rails_den_posts"."id" IS NOT NULL LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mRailsDen::Post Load (0.1ms)[0m  [1m[34mSELECT "rails_den_posts".* FROM "rails_den_posts" WHERE "rails_den_posts"."topic_id" = 2 AND "rails_den_posts"."id" IS NOT NULL ORDER BY "rails_den_posts"."created_at" ASC, "rails_den_posts"."id" ASC /*action='create',application='Dummy',controller='posts'*/[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/topics/show.html.erb within layouts/rails_den/application (Duration: 12.5ms | GC: 3.3ms)
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='posts'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 2.5ms | GC: 0.4ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 15.5ms | GC: 3.7ms)
+Completed 422 Unprocessable Content in 26ms (Views: 15.6ms | ActiveRecord: 1.0ms (10 queries, 2 cached) | GC: 3.7ms)
+
+
+Started GET "/rails_den/boards/1" for ::1 at 2026-08-20 22:45:52 -0500
+Processing by RailsDen::BoardsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' AND "rails_den_boards"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Topic Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Topic Load (0.1ms)[0m  [1m[34mSELECT "rails_den_topics".* FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 1 ORDER BY "rails_den_topics"."pinned" DESC, "rails_den_topics"."created_at" DESC, "rails_den_topics"."id" DESC /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application (Duration: 5.1ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.6ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 10.9ms | GC: 0.3ms)
+Completed 200 OK in 17ms (Views: 11.1ms | ActiveRecord: 0.8ms (7 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/rails_den/" for ::1 at 2026-08-20 22:46:12 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.2ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.2ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 10.6ms | GC: 0.5ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 15.5ms | GC: 0.5ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.8ms (7 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/rails_den/boards/1" for ::1 at 2026-08-20 22:46:18 -0500
+Processing by RailsDen::BoardsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' AND "rails_den_boards"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (0.2ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Topic Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Topic Load (0.1ms)[0m  [1m[34mSELECT "rails_den_topics".* FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 1 ORDER BY "rails_den_topics"."pinned" DESC, "rails_den_topics"."created_at" DESC, "rails_den_topics"."id" DESC /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application (Duration: 4.6ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 9.9ms | GC: 0.3ms)
+Completed 200 OK in 15ms (Views: 9.8ms | ActiveRecord: 0.8ms (7 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/rails_den/" for ::1 at 2026-08-20 22:46:22 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.2ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 9.6ms | GC: 1.4ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.9ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 14.3ms | GC: 1.4ms)
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.7ms (7 queries, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/rails_den/admin" for ::1 at 2026-08-20 22:46:35 -0500
+Processing by Admin::RailsDen::AdministratorsController#index as HTML
+  [1m[36mSession Load (0.8ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='administrators'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='administrators'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='administrators'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_search.html.erb (Duration: 0.9ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_index_header.html.erb (Duration: 5.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  [1m[36mRailsDen::Administrator Load (0.1ms)[0m  [1m[34mSELECT "rails_den_administrators".* FROM "rails_den_administrators" LIMIT 20 OFFSET 0 /*action='index',application='Dummy',controller='administrators'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Dummy',controller='administrators'*/[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/date_time/_index.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 1.3ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.6ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection.html.erb (Duration: 19.0ms | GC: 3.7ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_pagination.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 27.1ms | GC: 3.7ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 1.3ms | GC: 0.7ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_javascript.html.erb (Duration: 6.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_icons.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE RailsDen::Administrator Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.4ms | GC: 0.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/administrate/application/_navigation.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb (Duration: 41.9ms | GC: 4.9ms)
+Completed 200 OK in 54ms (Views: 43.1ms | ActiveRecord: 1.4ms (9 queries, 4 cached) | GC: 4.9ms)
+
+
+Started GET "/rails_den/admin/boards" for ::1 at 2026-08-20 22:46:37 -0500
+Processing by Admin::RailsDen::BoardsController#index as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_search.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.5ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" LIMIT 20 OFFSET 0 /*action='index',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.3ms | GC: 0.3ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/boolean/_index.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection.html.erb (Duration: 16.1ms | GC: 1.3ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_pagination.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 18.4ms | GC: 1.3ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_javascript.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE RailsDen::Administrator Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.7ms | GC: 0.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/administrate/application/_navigation.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb (Duration: 23.9ms | GC: 1.3ms)
+Completed 200 OK in 30ms (Views: 24.6ms | ActiveRecord: 0.5ms (8 queries, 3 cached) | GC: 1.8ms)
+
+
+Started GET "/rails_den/admin/categories" for ::1 at 2026-08-20 22:46:40 -0500
+Processing by Admin::RailsDen::CategoriesController#index as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='categories'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='categories'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='categories'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_search.html.erb (Duration: 0.7ms | GC: 0.3ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.9ms | GC: 0.3ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" LIMIT 20 OFFSET 0 /*action='index',application='Dummy',controller='categories'*/[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/boolean/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection.html.erb (Duration: 7.1ms | GC: 0.2ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_pagination.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 9.9ms | GC: 0.5ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_javascript.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE RailsDen::Administrator Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.6ms | GC: 0.2ms)
+  Rendered /home/number5/rails_den/app/views/layouts/administrate/application/_navigation.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb (Duration: 15.2ms | GC: 0.7ms)
+Completed 200 OK in 20ms (Views: 15.9ms | ActiveRecord: 0.4ms (7 queries, 3 cached) | GC: 0.7ms)
+
+
+Started GET "/rails_den/admin/categories/1" for ::1 at 2026-08-20 22:46:48 -0500
+Processing by Admin::RailsDen::CategoriesController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='show',application='Dummy',controller='categories'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='categories'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='categories'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='categories'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/show.html.erb within layouts/administrate/application
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_show.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_show.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_show.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/text/_show.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_show.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/boolean/_show.html.erb (Duration: 0.4ms | GC: 0.2ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_show.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/date_time/_show.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/date_time/_show.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/show.html.erb within layouts/administrate/application (Duration: 6.0ms | GC: 0.2ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_javascript.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE RailsDen::Administrator Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.7ms | GC: 0.1ms)
+  Rendered /home/number5/rails_den/app/views/layouts/administrate/application/_navigation.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb (Duration: 11.5ms | GC: 0.4ms)
+Completed 200 OK in 17ms (Views: 12.1ms | ActiveRecord: 0.3ms (7 queries, 3 cached) | GC: 0.5ms)
+
+
+Started GET "/rails_den/admin/boards" for ::1 at 2026-08-20 22:46:53 -0500
+Processing by Admin::RailsDen::BoardsController#index as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_search.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" LIMIT 20 OFFSET 0 /*action='index',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/boolean/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.8ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection.html.erb (Duration: 8.9ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_pagination.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 10.6ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_javascript.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE RailsDen::Administrator Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.3ms | GC: 0.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/administrate/application/_navigation.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb (Duration: 15.2ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 15.4ms | ActiveRecord: 0.4ms (8 queries, 3 cached) | GC: 0.0ms)
+
+
+Started GET "/rails_den/admin/categories" for ::1 at 2026-08-20 22:46:54 -0500
+Processing by Admin::RailsDen::CategoriesController#index as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='categories'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='categories'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='categories'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_search.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" LIMIT 20 OFFSET 0 /*action='index',application='Dummy',controller='categories'*/[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/boolean/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection.html.erb (Duration: 5.5ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_pagination.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 7.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_javascript.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE RailsDen::Administrator Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 7.2ms | GC: 4.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/administrate/application/_navigation.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb (Duration: 15.7ms | GC: 4.0ms)
+Completed 200 OK in 20ms (Views: 15.9ms | ActiveRecord: 0.3ms (7 queries, 3 cached) | GC: 4.0ms)
+
+
+Started GET "/rails_den/admin/boards" for ::1 at 2026-08-20 22:46:55 -0500
+Processing by Admin::RailsDen::BoardsController#index as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_search.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.4ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" LIMIT 20 OFFSET 0 /*action='index',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 /*action='index',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/belongs_to/_index.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/boolean/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection.html.erb (Duration: 10.0ms | GC: 0.9ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_pagination.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 11.8ms | GC: 0.9ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_javascript.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE RailsDen::Administrator Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.1ms | GC: 0.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/administrate/application/_navigation.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb (Duration: 16.3ms | GC: 0.9ms)
+Completed 200 OK in 21ms (Views: 17.3ms | ActiveRecord: 0.4ms (8 queries, 3 cached) | GC: 1.7ms)
+
+
+Started GET "/rails_den/admin/boards/new" for ::1 at 2026-08-20 22:47:04 -0500
+Processing by Admin::RailsDen::BoardsController#new as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='new',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='new',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='new',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/new.html.erb within layouts/administrate/application
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" /*action='new',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/belongs_to/_form.html.erb (Duration: 3.4ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_form.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_form.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/text/_form.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_form.html.erb (Duration: 1.1ms | GC: 0.3ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/boolean/_form.html.erb (Duration: 1.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_form.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_form.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_form.html.erb (Duration: 11.0ms | GC: 0.8ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/new.html.erb within layouts/administrate/application (Duration: 12.1ms | GC: 0.8ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_javascript.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE RailsDen::Administrator Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.5ms | GC: 0.3ms)
+  Rendered /home/number5/rails_den/app/views/layouts/administrate/application/_navigation.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb (Duration: 16.9ms | GC: 1.1ms)
+Completed 200 OK in 21ms (Views: 17.4ms | ActiveRecord: 0.3ms (7 queries, 3 cached) | GC: 1.1ms)
+
+
+Started POST "/rails_den/admin/boards" for ::1 at 2026-08-20 22:48:08 -0500
+Processing by Admin::RailsDen::BoardsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "rails_den_board" => {"category_id" => "1", "title" => "Introduce Yourself", "slug" => "introduce-yourself", "description" => "This is where you can introduce yourself to the community", "position" => "0", "enabled" => "1", "visibility" => "public", "icon" => ""}, "commit" => "Create Board"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='create',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='boards'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (3.0ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."slug" = 'introduce-yourself' AND "rails_den_boards"."category_id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Board Create (0.2ms)[0m  [1m[32mINSERT INTO "rails_den_boards" ("category_id", "title", "slug", "description", "position", "enabled", "visibility", "icon", "created_at", "updated_at") VALUES (1, 'Introduce Yourself', 'introduce-yourself', 'This is where you can introduce yourself to the community', 0, TRUE, 'public', NULL, '2026-08-21 03:48:08.046855', '2026-08-21 03:48:08.046855') RETURNING "id" /*action='create',application='Dummy',controller='boards'*/[0m
+  [1m[36mTRANSACTION (9.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Dummy',controller='boards'*/[0m
+Redirected to http://localhost:3000/admin/boards/2
+Completed 302 Found in 30ms (ActiveRecord: 12.8ms (6 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/admin/boards/2" for ::1 at 2026-08-20 22:48:08 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/admin/boards/2"):
+  
+Started GET "/rails_den/admin/boards/new" for ::1 at 2026-08-20 22:48:08 -0500
+Processing by Admin::RailsDen::BoardsController#new as HTML
+  [1m[36mSession Load (0.5ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='new',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='new',application='Dummy',controller='boards'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='new',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/new.html.erb within layouts/administrate/application
+  [1m[36mRailsDen::Category Load (0.4ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" /*action='new',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/belongs_to/_form.html.erb (Duration: 4.5ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_form.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_form.html.erb (Duration: 3.3ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/text/_form.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_form.html.erb (Duration: 0.7ms | GC: 0.2ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/boolean/_form.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_form.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_form.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_form.html.erb (Duration: 14.6ms | GC: 0.2ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/new.html.erb within layouts/administrate/application (Duration: 15.2ms | GC: 0.2ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_javascript.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE RailsDen::Administrator Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.9ms | GC: 0.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/administrate/application/_navigation.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb (Duration: 23.3ms | GC: 0.2ms)
+Completed 200 OK in 36ms (Views: 23.6ms | ActiveRecord: 1.1ms (7 queries, 3 cached) | GC: 0.5ms)
+
+
+Started GET "/rails_den/" for ::1 at 2026-08-20 22:48:13 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 6.9ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.0ms | GC: 0.1ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 11.8ms | GC: 0.1ms)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.6ms (7 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/rails_den/admin" for ::1 at 2026-08-20 22:48:14 -0500
+Processing by Admin::RailsDen::AdministratorsController#index as HTML
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='administrators'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='administrators'*/[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='administrators'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb
+  Rendering /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_search.html.erb (Duration: 0.4ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_index_header.html.erb (Duration: 1.5ms | GC: 0.1ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_header_actions.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  [1m[36mRailsDen::Administrator Load (0.1ms)[0m  [1m[34mSELECT "rails_den_administrators".* FROM "rails_den_administrators" LIMIT 20 OFFSET 0 /*action='index',application='Dummy',controller='administrators'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*action='index',application='Dummy',controller='administrators'*/[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/number/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/string/_index.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/fields/date_time/_index.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection_item_actions.html.erb (Duration: 0.5ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_collection.html.erb (Duration: 11.4ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_pagination.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/index.html.erb within layouts/administrate/application (Duration: 13.4ms | GC: 0.1ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_stylesheet.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_javascript.html.erb (Duration: 0.1ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_icons.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  [1m[36mCACHE Session Load (0.0ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  ↳ config/initializers/rails_den.rb:8:in 'block (2 levels) in <top (required)>'
+  [1m[36mCACHE RailsDen::Administrator Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.1ms | GC: 0.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/administrate/application/_navigation.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered /home/number5/.rbenv/versions/4.0.6/lib/ruby/gems/4.0.0/gems/administrate-1.0.0/app/views/administrate/application/_flashes.html.erb (Duration: 0.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/administrate/application.html.erb (Duration: 17.8ms | GC: 0.1ms)
+Completed 200 OK in 22ms (Views: 18.0ms | ActiveRecord: 0.4ms (9 queries, 4 cached) | GC: 0.1ms)
+
+
+Started GET "/rails_den/" for ::1 at 2026-08-20 22:48:15 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 6.5ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.6ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 10.9ms | GC: 0.0ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.5ms (7 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails_den/" for ::1 at 2026-08-20 22:48:16 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.2ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.3ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 12.6ms | GC: 3.7ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.9ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 17.3ms | GC: 3.7ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.8ms (7 queries, 0 cached) | GC: 3.7ms)
+
+
+Started GET "/rails_den/boards/2" for ::1 at 2026-08-20 22:48:28 -0500
+Processing by RailsDen::BoardsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' AND "rails_den_boards"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Topic Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application (Duration: 2.9ms | GC: 0.7ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.5ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 8.5ms | GC: 0.7ms)
+Completed 200 OK in 14ms (Views: 8.6ms | ActiveRecord: 0.6ms (6 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/rails_den/" for ::1 at 2026-08-20 22:48:39 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.2ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 9.8ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.7ms | GC: 0.6ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 15.4ms | GC: 0.6ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.8ms (7 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/rails_den/boards/1" for ::1 at 2026-08-20 22:48:47 -0500
+Processing by RailsDen::BoardsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' AND "rails_den_boards"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (0.6ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Topic Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Topic Load (0.2ms)[0m  [1m[34mSELECT "rails_den_topics".* FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 1 ORDER BY "rails_den_topics"."pinned" DESC, "rails_den_topics"."created_at" DESC, "rails_den_topics"."id" DESC /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application (Duration: 4.8ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.8ms | GC: 0.3ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 10.7ms | GC: 0.3ms)
+Completed 200 OK in 16ms (Views: 10.5ms | ActiveRecord: 1.2ms (7 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/rails_den/" for ::1 at 2026-08-20 22:49:56 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.2ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.2ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 12.8ms | GC: 2.6ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 17.9ms | GC: 2.6ms)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.9ms (7 queries, 0 cached) | GC: 2.6ms)
+
+
+Started GET "/rails_den/" for ::1 at 2026-08-20 22:54:28 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 21.5ms | GC: 4.4ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 17.3ms | GC: 1.2ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 40.3ms | GC: 5.6ms)
+Completed 200 OK in 45ms (Views: 39.0ms | ActiveRecord: 2.7ms (7 queries, 0 cached) | GC: 5.6ms)
+
+
+Started GET "/rails_den/boards/2" for ::1 at 2026-08-20 22:54:42 -0500
+Processing by RailsDen::BoardsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' AND "rails_den_boards"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Topic Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application (Duration: 2.3ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 3.7ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 7.0ms | GC: 0.2ms)
+Completed 200 OK in 18ms (Views: 7.4ms | ActiveRecord: 1.0ms (6 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/rails_den/" for ::1 at 2026-08-20 22:54:53 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.2ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.2ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 8.5ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.9ms | GC: 0.3ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 14.2ms | GC: 0.3ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.8ms (7 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/rails_den/boards/1" for ::1 at 2026-08-20 22:54:56 -0500
+Processing by RailsDen::BoardsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mRailsDen::Board Load (1.8ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' AND "rails_den_boards"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Topic Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Topic Load (0.1ms)[0m  [1m[34mSELECT "rails_den_topics".* FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 1 ORDER BY "rails_den_topics"."pinned" DESC, "rails_den_topics"."created_at" DESC, "rails_den_topics"."id" DESC /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application (Duration: 7.7ms | GC: 0.6ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 14.7ms | GC: 0.6ms)
+Completed 200 OK in 26ms (Views: 15.1ms | ActiveRecord: 2.5ms (7 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/rails_den/boards/1/topics/new" for ::1 at 2026-08-20 23:00:00 -0500
+Processing by RailsDen::TopicsController#new as HTML
+  Parameters: {"board_id" => "1"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='new',application='Dummy',controller='topics'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='new',application='Dummy',controller='topics'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Board Load (0.2ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' AND "rails_den_boards"."id" = 1 LIMIT 1 /*action='new',application='Dummy',controller='topics'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='new',application='Dummy',controller='topics'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/topics/new.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/topics/new.html.erb within layouts/rails_den/application (Duration: 1.8ms | GC: 0.0ms)
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='new',application='Dummy',controller='topics'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 2.6ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 4.9ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 5.5ms | ActiveRecord: 1.0ms (5 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/rails_den/boards/1/topics" for ::1 at 2026-08-20 23:00:03 -0500
+Processing by RailsDen::TopicsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "rails_den_topic" => {"title" => "", "slug" => ""}, "rails_den_post" => {"body" => ""}, "commit" => "Create topic", "board_id" => "1"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='create',application='Dummy',controller='topics'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='topics'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' AND "rails_den_boards"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='topics'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='topics'*/[0m
+  [1m[36mRailsDen::Topic Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_topics" WHERE "rails_den_topics"."slug" = '' AND "rails_den_topics"."board_id" = 1 LIMIT 1 /*action='create',application='Dummy',controller='topics'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/topics/new.html.erb within layouts/rails_den/application
+  Rendered /home/number5/rails_den/app/views/rails_den/topics/new.html.erb within layouts/rails_den/application (Duration: 2.3ms | GC: 0.0ms)
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='create',application='Dummy',controller='topics'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 5.6ms | GC: 3.3ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 8.4ms | GC: 3.3ms)
+Completed 422 Unprocessable Content in 19ms (Views: 8.6ms | ActiveRecord: 0.7ms (6 queries, 0 cached) | GC: 3.3ms)
+
+
+Started DELETE "/session" for ::1 at 2026-08-20 23:00:26 -0500
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 4 LIMIT 1 /*action='destroy',application='Dummy',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='destroy',application='Dummy',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:49:in 'Authentication#terminate_session'
+  [1m[36mSession Destroy (1.9ms)[0m  [1m[31mDELETE FROM "sessions" WHERE "sessions"."id" = 4 /*action='destroy',application='Dummy',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:49:in 'Authentication#terminate_session'
+  [1m[36mTRANSACTION (6.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='destroy',application='Dummy',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:49:in 'Authentication#terminate_session'
+Redirected to http://localhost:3000/session/new
+↳ app/controllers/sessions_controller.rb:37:in 'SessionsController#destroy'
+Completed 303 See Other in 13ms (ActiveRecord: 8.4ms (2 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/session/new" for ::1 at 2026-08-20 23:00:26 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 16.6ms | GC: 0.9ms)
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 17.4ms | GC: 0.9ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/session/new" for ::1 at 2026-08-20 23:00:33 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 3.3ms | GC: 0.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 4.1ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/registration/new" for ::1 at 2026-08-20 23:00:35 -0500
+Processing by RegistrationsController#new as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering rails_den/registrations/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/registrations/new.html.erb within layouts/rails_den/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 0.5ms | GC: 0.3ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 4.2ms | GC: 0.3ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/" for ::1 at 2026-08-20 23:00:39 -0500
+Redirected to http://localhost:3000/rails_den
+↳ /home/number5/rails_den/test/dummy/config/routes.rb:2:in 'block in <top (required)>'
+Completed 301 Moved Permanently in 0ms
+
+
+Started GET "/rails_den" for ::1 at 2026-08-20 23:00:39 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.2ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 8.6ms | GC: 0.5ms)
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 9.5ms | GC: 0.5ms)
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.6ms (4 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/rails_den/boards/1" for ::1 at 2026-08-20 23:00:43 -0500
+Processing by RailsDen::BoardsController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' AND "rails_den_boards"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Category Load (0.2ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Topic Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='boards'*/[0m
+  [1m[36mRailsDen::Topic Load (0.1ms)[0m  [1m[34mSELECT "rails_den_topics".* FROM "rails_den_topics" WHERE "rails_den_topics"."board_id" = 1 ORDER BY "rails_den_topics"."pinned" DESC, "rails_den_topics"."created_at" DESC, "rails_den_topics"."id" DESC /*action='show',application='Dummy',controller='boards'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/boards/show.html.erb within layouts/rails_den/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 0.2ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 5.5ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 5.6ms | ActiveRecord: 0.5ms (4 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/rails_den/topics/2" for ::1 at 2026-08-20 23:00:46 -0500
+Processing by RailsDen::TopicsController#show as HTML
+  Parameters: {"id" => "2"}
+Redirected to http://localhost:3000/session/new
+↳ config/initializers/rails_den.rb:14:in 'block (2 levels) in <top (required)>'
+Filter chain halted as :authenticate_rails_den_user! rendered or redirected
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/session/new" for ::1 at 2026-08-20 23:00:46 -0500
+Processing by SessionsController#new as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering rails_den/sessions/new.html.erb within layouts/rails_den/application
+  Rendered rails_den/sessions/new.html.erb within layouts/rails_den/application (Duration: 3.3ms | GC: 0.0ms)
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 4.4ms | GC: 0.2ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+
+
+Started POST "/session" for ::1 at 2026-08-20 23:00:58 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "session" => {"email_address" => "[FILTERED]", "password" => "[FILTERED]"}, "commit" => "Sign in"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email_address" = 'jrnelson75032@gmail.com' LIMIT 1 /*action='create',application='Dummy',controller='sessions'*/[0m
+  ↳ app/controllers/sessions_controller.rb:26:in 'SessionsController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Dummy',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in 'Authentication#start_new_session_for'
+  [1m[36mSession Create (1.1ms)[0m  [1m[32mINSERT INTO "sessions" ("created_at", "ip_address", "updated_at", "user_agent", "user_id") VALUES ('2026-08-21 04:00:58.700038', '::1', '2026-08-21 04:00:58.700038', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36', 2) RETURNING "id" /*action='create',application='Dummy',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in 'Authentication#start_new_session_for'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Dummy',controller='sessions'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:42:in 'Authentication#start_new_session_for'
+Redirected to http://localhost:3000/rails_den/topics/2
+↳ app/controllers/sessions_controller.rb:28:in 'SessionsController#create'
+Completed 302 Found in 221ms (ActiveRecord: 1.3ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/rails_den/topics/2" for ::1 at 2026-08-20 23:00:58 -0500
+Processing by RailsDen::TopicsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 5 LIMIT 1 /*action='show',application='Dummy',controller='topics'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='topics'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Topic Load (0.1ms)[0m  [1m[34mSELECT "rails_den_topics".* FROM "rails_den_topics" WHERE "rails_den_topics"."id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='topics'*/[0m
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/topics/show.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Board Load (0.1ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='topics'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."id" = 1 LIMIT 1 /*action='show',application='Dummy',controller='topics'*/[0m
+  [1m[36mRailsDen::Post Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_posts" WHERE "rails_den_posts"."topic_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='topics'*/[0m
+  [1m[36mRailsDen::Post Load (0.1ms)[0m  [1m[34mSELECT "rails_den_posts".* FROM "rails_den_posts" WHERE "rails_den_posts"."topic_id" = 2 ORDER BY "rails_den_posts"."created_at" ASC, "rails_den_posts"."id" ASC /*action='show',application='Dummy',controller='topics'*/[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/topics/show.html.erb within layouts/rails_den/application (Duration: 12.5ms | GC: 0.0ms)
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='show',application='Dummy',controller='topics'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 2.3ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 15.4ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 15.3ms | ActiveRecord: 0.8ms (10 queries, 2 cached) | GC: 0.4ms)
+
+
+Started GET "/rails_den/" for ::1 at 2026-08-21 01:17:30 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.2ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.2ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 9.7ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 5 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 15.3ms | GC: 0.1ms)
+Completed 200 OK in 17ms (Views: 14.6ms | ActiveRecord: 1.4ms (7 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/" for ::1 at 2026-08-21 01:17:33 -0500
+Redirected to http://localhost:3000/rails_den
+↳ /home/number5/rails_den/test/dummy/config/routes.rb:2:in 'block in <top (required)>'
+Completed 301 Moved Permanently in 0ms
+
+
+Started GET "/rails_den" for ::1 at 2026-08-21 01:17:33 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.1ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.2ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 8.3ms | GC: 0.6ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 5 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.0ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 13.0ms | GC: 0.6ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.7ms (7 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/rails_den" for ::1 at 2026-08-21 01:17:53 -0500
+Processing by RailsDen::HomeController#index as HTML
+  Rendering layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb
+  Rendering /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application
+  [1m[36mRailsDen::Category Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Category Load (0.2ms)[0m  [1m[34mSELECT "rails_den_categories".* FROM "rails_den_categories" WHERE "rails_den_categories"."enabled" = TRUE AND "rails_den_categories"."visibility" = 'public' ORDER BY "rails_den_categories"."position" ASC, "rails_den_categories"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  [1m[36mRailsDen::Board Load (0.2ms)[0m  [1m[34mSELECT "rails_den_boards".* FROM "rails_den_boards" WHERE "rails_den_boards"."category_id" = 1 AND "rails_den_boards"."enabled" = TRUE AND "rails_den_boards"."visibility" = 'public' ORDER BY "rails_den_boards"."position" ASC, "rails_den_boards"."id" ASC /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/rails_den/home/index.html.erb within layouts/rails_den/application (Duration: 8.8ms | GC: 0.0ms)
+  [1m[36mSession Load (0.1ms)[0m  [1m[34mSELECT "sessions".* FROM "sessions" WHERE "sessions"."id" = 5 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/controllers/concerns/authentication.rb:29:in 'Authentication#find_session_by_cookie'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  ↳ app/models/current.rb:3:in 'Current#user'
+  [1m[36mRailsDen::Administrator Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "rails_den_administrators" WHERE "rails_den_administrators"."user_type" = 'User' AND "rails_den_administrators"."user_id" = 2 LIMIT 1 /*action='index',application='Dummy',controller='home'*/[0m
+  Rendered /home/number5/rails_den/app/views/layouts/rails_den/_navbar.html.erb (Duration: 4.2ms | GC: 0.0ms)
+  Rendered layout /home/number5/rails_den/app/views/layouts/rails_den/application.html.erb (Duration: 13.8ms | GC: 0.0ms)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 0.8ms (7 queries, 0 cached) | GC: 0.0ms)
+
+

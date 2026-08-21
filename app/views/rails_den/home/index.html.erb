@@ -36,11 +36,11 @@
               <% boards.each do |board| %>
                 <%= link_to board_path(board),
                             class: "rails-den-board" do %>
-                  <% if board.icon.present? %>
-                    <div class="rails-den-board-icon">
+                  <div class="rails-den-board-icon" aria-hidden="true">
+                    <% if board.icon.present? %>
                       <%= board.icon %>
-                    </div>
-                  <% end %>
+                    <% end %>
+                  </div>
 
                   <div class="rails-den-board-content">
                     <h3 class="rails-den-board-title">

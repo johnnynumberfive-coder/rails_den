@@ -1,0 +1,154 @@
+<div class="rails-den-community">
+  <div class="rails-den-breadcrumbs">
+    <%= link_to "Community", root_path %>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <span>
+      <%= @topic.board.category.title %>
+    </span>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <%= link_to @topic.board.title,
+                board_path(@topic.board) %>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <span>
+      <%= @topic.title %>
+    </span>
+  </div>
+
+  <header class="rails-den-board-page-header">
+    <div>
+      <p class="rails-den-board-page-category">
+        <%= @topic.board.title %>
+      </p>
+
+      <h1 class="rails-den-board-page-title">
+        <% if @topic.pinned? %>
+          📌
+        <% end %>
+
+        <%= @topic.title %>
+      </h1>
+
+      <% if @topic.locked? %>
+        <p class="rails-den-board-page-description">
+          This topic is locked.
+        </p>
+      <% end %>
+    </div>
+  </header>
+
+  <section class="rails-den-topics">
+    <header class="rails-den-topics-header">
+      <h2 class="rails-den-topics-title">
+        Conversation
+      </h2>
+    </header>
+
+    <% if @posts.any? %>
+      <div class="rails-den-board-list">
+        <% @posts.each do |post| %>
+          <article class="rails-den-board">
+            <div class="rails-den-board-content">
+              <h3 class="rails-den-board-title">
+                <% if post.author.respond_to?(:email_address) %>
+                  <%= post.author.email_address %>
+                <% else %>
+                  <%= post.author %>
+                <% end %>
+              </h3>
+
+              <p class="rails-den-board-description">
+                <%= time_ago_in_words(post.created_at) %> ago
+              </p>
+
+              <div class="rails-den-post-body">
+                <%= simple_format(post.body) %>
+              </div>
+            </div>
+          </article>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="rails-den-topics-empty">
+        <h3>No posts yet</h3>
+
+        <p>
+          This topic does not have any posts yet.
+        </p>
+      </div>
+    <% end %>
+  </section>
+
+  <% unless @topic.locked? %>
+    <% if rails_den_user_signed_in? %>
+      <section class="rails-den-auth-card rails-den-reply-form">
+        <h2 class="rails-den-auth-title">
+          Reply
+        </h2>
+
+        <% if @post.errors.any? %>
+          <div class="rails-den-errors">
+            <strong>
+              We couldn't post your reply.
+            </strong>
+
+            <ul>
+              <% @post.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <%= form_with model: @post,
+                      url: topic_posts_path(@topic) do |form| %>
+          <div class="rails-den-field">
+            <%= form.label :body, "Your reply" %>
+
+            <%= form.text_area :body,
+                               rows: 8,
+                               placeholder: "Write your reply..." %>
+          </div>
+
+          <%= form.submit "Post reply",
+                          class: "rails-den-button" %>
+        <% end %>
+      </section>
+    <% else %>
+      <section class="rails-den-empty-state">
+        <h2>Want to join the conversation?</h2>
+
+        <p>
+          Sign in to post a reply.
+        </p>
+
+        <% if main_app.respond_to?(:new_session_path) %>
+          <p>
+            <%= link_to "Sign in",
+                        main_app.new_session_path,
+                        class: "rails-den-navbar-button" %>
+          </p>
+        <% end %>
+      </section>
+    <% end %>
+  <% else %>
+    <section class="rails-den-empty-state">
+      <h2>Topic locked</h2>
+
+      <p>
+        New replies are no longer being accepted.
+      </p>
+    </section>
+  <% end %>
+</div>

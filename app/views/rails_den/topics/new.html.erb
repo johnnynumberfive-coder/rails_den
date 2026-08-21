@@ -1,0 +1,98 @@
+<div class="rails-den-community">
+  <div class="rails-den-breadcrumbs">
+    <%= link_to "Community", root_path %>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <span>
+      <%= @board.category.title %>
+    </span>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <%= link_to @board.title, board_path(@board) %>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <span>
+      New Topic
+    </span>
+  </div>
+
+  <header class="rails-den-board-page-header">
+    <div>
+      <p class="rails-den-board-page-category">
+        <%= @board.title %>
+      </p>
+
+      <h1 class="rails-den-board-page-title">
+        Start a new topic
+      </h1>
+
+      <p class="rails-den-board-page-description">
+        Start a new conversation in <%= @board.title %>.
+      </p>
+    </div>
+  </header>
+
+  <section class="rails-den-auth-card">
+    <% if @topic.errors.any? || @opening_post.errors.any? %>
+      <div class="rails-den-errors">
+        <strong>
+          We couldn't create this topic.
+        </strong>
+
+        <ul>
+          <% @topic.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+
+          <% @opening_post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_with model: @topic,
+                  url: board_topics_path(@board) do |form| %>
+      <div class="rails-den-field">
+        <%= form.label :title %>
+
+        <%= form.text_field :title,
+                            autofocus: true,
+                            placeholder: "What would you like to discuss?" %>
+      </div>
+
+      <div class="rails-den-field">
+        <%= form.label :slug %>
+
+        <%= form.text_field :slug,
+                            placeholder: "what-would-you-like-to-discuss" %>
+
+        <span class="hint">
+          Lowercase letters, numbers, and hyphens only.
+        </span>
+      </div>
+
+      <%= fields_for @opening_post do |post_form| %>
+        <div class="rails-den-field">
+          <%= post_form.label :body, "Message" %>
+
+          <%= post_form.text_area :body,
+                                  rows: 10,
+                                  placeholder: "What would you like to say?" %>
+        </div>
+      <% end %>
+
+      <%= form.submit "Create topic",
+                      class: "rails-den-button" %>
+    <% end %>
+  </section>
+</div>
