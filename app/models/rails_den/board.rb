@@ -2,6 +2,9 @@ module RailsDen
   class Board < ApplicationRecord
     belongs_to :category
 
+    has_many :topics,
+             dependent: :restrict_with_error
+
     enum :visibility,
          {
            public: "public",

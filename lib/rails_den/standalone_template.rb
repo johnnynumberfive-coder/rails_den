@@ -273,6 +273,17 @@ after_bundle do
   remove_file "app/views/passwords_mailer/reset.html.erb"
   remove_file "app/views/passwords_mailer/reset.text.erb"
 
+  rails_den_stylesheet =
+    File.join(
+      rails_den_source,
+      "app/assets/stylesheets/rails_den/application.css"
+    )
+
+  file(
+    "app/assets/stylesheets/rails_den/application.css",
+    File.read(rails_den_stylesheet)
+  )
+
   route <<~RUBY
     root to: redirect("/rails_den")
 
@@ -320,6 +331,12 @@ after_bundle do
   say
   say "The copied files will appear under app/views and override"
   say "RailsDen's packaged defaults."
+  say
+  say "RailsDen's stylesheet has been copied to:"
+  say
+  say "    app/assets/stylesheets/rails_den/application.css"
+  say
+  say "Edit that file to customize the appearance of your community."
   say
   say "============================================================"
   say

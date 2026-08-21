@@ -11,6 +11,12 @@ module RailsDen
              @board.category.visibility_public?
         raise ActiveRecord::RecordNotFound
       end
+
+      @topics = @board.topics.order(
+        pinned: :desc,
+        created_at: :desc,
+        id: :desc
+      )
     end
   end
 end

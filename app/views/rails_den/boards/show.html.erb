@@ -35,6 +35,12 @@
         </p>
       <% end %>
     </div>
+
+    <p>
+      <%= link_to "New Topic",
+                  new_board_topic_path(@board),
+                  class: "rails-den-navbar-button" %>
+    </p>
   </header>
 
   <section class="rails-den-topics">
@@ -44,12 +50,45 @@
       </h2>
     </header>
 
-    <div class="rails-den-topics-empty">
-      <h3>No topics yet</h3>
+    <% if @topics.any? %>
+      <div class="rails-den-board-list">
+        <% @topics.each do |topic| %>
+          <%= link_to topic_path(topic),
+                      class: "rails-den-board" do %>
+            <div class="rails-den-board-content">
+              <h3 class="rails-den-board-title">
+                <% if topic.pinned? %>
+                  📌
+                <% end %>
 
-      <p>
-        Be the first to start a conversation in this board.
-      </p>
-    </div>
+                <%= topic.title %>
+
+                <% if topic.locked? %>
+                  🔒
+                <% end %>
+              </h3>
+
+              <p class="rails-den-board-description">
+                Started
+                <%= time_ago_in_words(topic.created_at) %>
+                ago
+              </p>
+            </div>
+
+            <div class="rails-den-board-arrow" aria-hidden="true">
+              &rsaquo;
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="rails-den-topics-empty">
+        <h3>No topics yet</h3>
+
+        <p>
+          Be the first to start a conversation in this board.
+        </p>
+      </div>
+    <% end %>
   </section>
 </div>

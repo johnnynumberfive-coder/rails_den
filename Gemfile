@@ -16,3 +16,7 @@ gem "rubocop-rails-omakase", require: false
 # gem "debug", ">= 1.0.0"
 
 gem "bcrypt", "~> 3.1"
+
+gem "rails_proof", "~> 1.0"
+
+gem "openai", "~> 0.80.0"

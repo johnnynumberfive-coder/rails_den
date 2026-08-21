@@ -2,7 +2,16 @@ RailsDen::Engine.routes.draw do
   root to: "home#index"
 
   resources :boards,
-            only: :show
+            only: :show do
+    resources :topics,
+              only: %i[new create]
+  end
+
+  resources :topics,
+            only: :show do
+    resources :posts,
+              only: :create
+  end
 
   get "admin",
       to: "/admin/rails_den/administrators#index",

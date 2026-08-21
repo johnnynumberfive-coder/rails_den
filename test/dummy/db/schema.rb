@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_20_212813) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_21_003933) do
   create_table "rails_den_administrators", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -46,6 +46,32 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_20_212813) do
     t.index ["slug"], name: "index_rails_den_categories_on_slug", unique: true
   end
 
+  create_table "rails_den_posts", force: :cascade do |t|
+    t.integer "author_id", null: false
+    t.string "author_type", null: false
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.integer "topic_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_rails_den_posts_on_author"
+    t.index ["topic_id"], name: "index_rails_den_posts_on_topic_id"
+  end
+
+  create_table "rails_den_topics", force: :cascade do |t|
+    t.integer "author_id", null: false
+    t.string "author_type", null: false
+    t.integer "board_id", null: false
+    t.datetime "created_at", null: false
+    t.boolean "locked", default: false, null: false
+    t.boolean "pinned", default: false, null: false
+    t.string "slug", null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_type", "author_id"], name: "index_rails_den_topics_on_author"
+    t.index ["board_id", "slug"], name: "index_rails_den_topics_on_board_id_and_slug", unique: true
+    t.index ["board_id"], name: "index_rails_den_topics_on_board_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "ip_address"
@@ -64,5 +90,7 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_20_212813) do
   end
 
   add_foreign_key "rails_den_boards", "rails_den_categories", column: "category_id"
+  add_foreign_key "rails_den_posts", "rails_den_topics", column: "topic_id"
+  add_foreign_key "rails_den_topics", "rails_den_boards", column: "board_id"
   add_foreign_key "sessions", "users"
 end
