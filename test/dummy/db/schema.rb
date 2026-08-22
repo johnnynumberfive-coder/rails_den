@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_08_21_003933) do
+ActiveRecord::Schema[8.1].define(version: 2026_08_22_012320) do
   create_table "rails_den_administrators", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -51,9 +51,13 @@ ActiveRecord::Schema[8.1].define(version: 2026_08_21_003933) do
     t.string "author_type", null: false
     t.text "body", null: false
     t.datetime "created_at", null: false
+    t.datetime "deleted_at"
+    t.integer "deleted_by_id"
+    t.string "deleted_by_type"
     t.integer "topic_id", null: false
     t.datetime "updated_at", null: false
     t.index ["author_type", "author_id"], name: "index_rails_den_posts_on_author"
+    t.index ["deleted_by_type", "deleted_by_id"], name: "index_rails_den_posts_on_deleted_by"
     t.index ["topic_id"], name: "index_rails_den_posts_on_topic_id"
   end
 

@@ -1,0 +1,79 @@
+<div class="rails-den-community">
+  <div class="rails-den-breadcrumbs">
+    <%= link_to "Community", root_path %>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <span>
+      <%= @topic.board.category.title %>
+    </span>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <%= link_to @topic.board.title,
+                board_path(@topic.board) %>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <%= link_to @topic.title,
+                topic_path(@topic) %>
+
+    <span class="rails-den-breadcrumb-separator">
+      /
+    </span>
+
+    <span>
+      Edit Post
+    </span>
+  </div>
+
+  <header class="rails-den-board-page-header">
+    <div>
+      <p class="rails-den-board-page-category">
+        <%= @topic.title %>
+      </p>
+
+      <h1 class="rails-den-board-page-title">
+        Edit your post
+      </h1>
+    </div>
+  </header>
+
+  <section class="rails-den-auth-card rails-den-reply-form">
+    <% if @post.errors.any? %>
+      <div class="rails-den-errors">
+        <strong>
+          We couldn't update your post.
+        </strong>
+
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_with model: @post,
+                  url: topic_post_path(@topic, @post),
+                  method: :patch do |form| %>
+      <div class="rails-den-field">
+        <%= form.label :body, "Your post" %>
+
+        <%= form.text_area :body,
+                           rows: 10,
+                           required: true,
+                           autofocus: true %>
+      </div>
+
+      <%= form.submit "Save changes",
+                      class: "rails-den-button" %>
+    <% end %>
+  </section>
+</div>

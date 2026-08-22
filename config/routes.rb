@@ -10,7 +10,7 @@ RailsDen::Engine.routes.draw do
   resources :topics,
             only: :show do
     resources :posts,
-              only: :create
+              only: %i[create edit update]
   end
 
   get "admin",

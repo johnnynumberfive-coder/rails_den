@@ -70,6 +70,14 @@
 
               <p class="rails-den-board-description">
                 <%= time_ago_in_words(post.created_at) %> ago
+
+                <% if rails_den_user_signed_in? &&
+                      post.author == current_rails_den_user %>
+                  ·
+                  <%= link_to "Edit",
+                              edit_topic_post_path(@topic, post),
+                              class: "rails-den-post-edit-link" %>
+                <% end %>
               </p>
 
               <div class="rails-den-post-body">
@@ -118,6 +126,7 @@
 
             <%= form.text_area :body,
                                rows: 8,
+                               required: true,
                                placeholder: "Write your reply..." %>
           </div>
 
